@@ -11,6 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/1_market.unity
     guid: 9eabd8241b80b0546ad989e2f70a796f
+  - enabled: 1
+    path: Assets/_Project/Scenes/2_hazirlik.unity
+    guid: 45c4428295e8bbf4ab57f7821fd037d7
+  - enabled: 1
+    path: Assets/_Project/Scenes/3_deprem.unity
+    guid: c6908b9c7c70c404580b220cf4a0b2ab
+  - enabled: 1
+    path: Assets/_Project/Scenes/4_tahliye.unity
+    guid: d2bc6266d8422bd4eb4030019e848960
+  - enabled: 1
+    path: Assets/_Project/Scenes/5_Credits.unity
+    guid: 7ce373f81801f1444928222c897bdd3e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

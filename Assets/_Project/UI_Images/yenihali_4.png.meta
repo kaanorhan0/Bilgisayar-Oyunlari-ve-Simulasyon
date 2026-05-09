@@ -135,10 +135,10 @@ TextureImporter:
       name: yenihali_4_1
       rect:
         serializedVersion: 2
-        x: 2652
-        y: 3275
-        width: 975
-        height: 277
+        x: 2653
+        y: 2921
+        width: 966
+        height: 281
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: yenihali_4_5
       rect:
         serializedVersion: 2
-        x: 507
-        y: 933
-        width: 423
-        height: 476
+        x: 501
+        y: 935
+        width: 429
+        height: 473
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,10 +245,10 @@ TextureImporter:
       name: yenihali_4_6
       rect:
         serializedVersion: 2
-        x: 2604
-        y: 1126
-        width: 1046
-        height: 247
+        x: 2384
+        y: 1499
+        width: 1487
+        height: 348
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: yenihali_4_7
       rect:
         serializedVersion: 2
-        x: 2655
-        y: 2567
-        width: 970
-        height: 282
+        x: 1126
+        y: 941
+        width: 426
+        height: 463
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,8 +279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27ccaedb406fb3149bb71880aac7c008
-      internalID: 844119977
+      spriteID: 5e778a7e562a87c439dcdc4bdce0bf18
+      internalID: -485932810
       vertices: []
       indices: 
       edges: []
@@ -289,10 +289,10 @@ TextureImporter:
       name: yenihali_4_8
       rect:
         serializedVersion: 2
-        x: 2655
-        y: 2216
-        width: 966
-        height: 282
+        x: 1126
+        y: 367
+        width: 430
+        height: 468
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,8 +301,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6717ef1f352a4e40a9839fa836930d9
-      internalID: 617790243
+      spriteID: fcccf3679f6700d4986b6ea3b1969446
+      internalID: -1755208092
       vertices: []
       indices: 
       edges: []
@@ -311,20 +311,20 @@ TextureImporter:
       name: yenihali_4_9
       rect:
         serializedVersion: 2
-        x: 1127
-        y: 937
-        width: 427
-        height: 469
+        x: 499
+        y: 367
+        width: 433
+        height: 470
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de1e9afe1b88c574686ea2664091b2bd
-      internalID: 1627276482
+      spriteID: 1b455ff4925674443b5be94dae505fdd
+      internalID: -1893155103
       vertices: []
       indices: 
       edges: []
@@ -333,10 +333,10 @@ TextureImporter:
       name: yenihali_4_10
       rect:
         serializedVersion: 2
-        x: 503
-        y: 367
-        width: 429
-        height: 469
+        x: 287
+        y: 1504
+        width: 1489
+        height: 342
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -345,8 +345,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b121193fa3692a48ad0632d528ffda8
-      internalID: 1919403689
+      spriteID: f10751388361a5d48ab8f7e9042f0ebf
+      internalID: 594193307
       vertices: []
       indices: 
       edges: []
@@ -355,53 +355,9 @@ TextureImporter:
       name: yenihali_4_11
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 365
-        width: 437
-        height: 475
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96a7101168cad10418817fa913863b81
-      internalID: 1732492175
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yenihali_4_12
-      rect:
-        serializedVersion: 2
-        x: 2389
-        y: 3686
-        width: 1494
-        height: 340
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76c2dff732a6c664a9d59bdd49559033
-      internalID: 2116956206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yenihali_4_13
-      rect:
-        serializedVersion: 2
-        x: 2603
-        y: 787
-        width: 1039
+        x: 2599
+        y: 1128
+        width: 1048
         height: 246
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -411,8 +367,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7082bdd76c521164389e9d8985075544
-      internalID: -1268206742
+      spriteID: 4f7d44dc3a252734ea97f3e07540c36b
+      internalID: -35969946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yenihali_4_12
+      rect:
+        serializedVersion: 2
+        x: 2603
+        y: 787
+        width: 1044
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0553a7be23156114ba6f48b9580d74f2
+      internalID: 1856587992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yenihali_4_13
+      rect:
+        serializedVersion: 2
+        x: 2397
+        y: 3693
+        width: 1486
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32cd62c7396609545851130250e43060
+      internalID: -505055288
       vertices: []
       indices: 
       edges: []
@@ -421,20 +421,42 @@ TextureImporter:
       name: yenihali_4_14
       rect:
         serializedVersion: 2
-        x: 277
-        y: 1499
-        width: 1499
-        height: 348
+        x: 2652
+        y: 3279
+        width: 967
+        height: 273
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92335853aedcb0d4e9e9ca43c45890d5
+      internalID: -671594683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yenihali_4_15
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 2571
+        width: 966
+        height: 275
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e4dc57446e93c54485ad32653a3a027
-      internalID: 1127932050
+      spriteID: a4f3c257c29f24348b4ce9781ec46602
+      internalID: -1030660553
       vertices: []
       indices: 
       edges: []
@@ -457,19 +479,20 @@ TextureImporter:
     nameFileIdTable:
       yenihali_4_0: 1817809669
       yenihali_4_1: -2024209488
-      yenihali_4_10: 1919403689
-      yenihali_4_11: 1732492175
-      yenihali_4_12: 2116956206
-      yenihali_4_13: -1268206742
-      yenihali_4_14: 1127932050
+      yenihali_4_10: 594193307
+      yenihali_4_11: -35969946
+      yenihali_4_12: 1856587992
+      yenihali_4_13: -505055288
+      yenihali_4_14: -671594683
+      yenihali_4_15: -1030660553
       yenihali_4_2: 1291478024
       yenihali_4_3: -1468900704
       yenihali_4_4: -37047024
       yenihali_4_5: 1596756453
       yenihali_4_6: 1774820990
-      yenihali_4_7: 844119977
-      yenihali_4_8: 617790243
-      yenihali_4_9: 1627276482
+      yenihali_4_7: -485932810
+      yenihali_4_8: -1755208092
+      yenihali_4_9: -1893155103
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
