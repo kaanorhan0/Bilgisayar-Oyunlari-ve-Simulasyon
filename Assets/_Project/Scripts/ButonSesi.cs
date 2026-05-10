@@ -8,20 +8,26 @@ public class ButonSesi : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     public AudioClip uzerineGelmeSesi;   // Fareyle üstüne gelince çıkacak ses (Örn: woosh)
     public AudioClip tiklamaSesi;        // Tıklayınca çıkacak ses (Örn: click)
 
+    void Start()
+    {
+        // YENİ EKLENEN KRİTİK KOD:
+        // Oyun dursa bile (Pause ekranında) bu hoparlörün sesi kesilmesin!
+        if (sfxHoparloru != null)
+        {
+            sfxHoparloru.ignoreListenerPause = true;
+        }
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
         if (sfxHoparloru != null && uzerineGelmeSesi != null && !sfxHoparloru.mute)
         {
             sfxHoparloru.PlayOneShot(uzerineGelmeSesi);
         }
     }
 
-
     public void OnPointerClick(PointerEventData eventData)
     {
-        
         if (sfxHoparloru != null && tiklamaSesi != null && !sfxHoparloru.mute)
         {
             sfxHoparloru.PlayOneShot(tiklamaSesi);

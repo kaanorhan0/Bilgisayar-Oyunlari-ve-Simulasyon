@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8207065639575546585}
   - component: {fileID: 3635078586435164101}
   - component: {fileID: 6409473236726930454}
+  - component: {fileID: 8573141076835172744}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -36,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -87.001, y: -71}
+  m_AnchoredPosition: {x: -81.998, y: -78.996}
   m_SizeDelta: {x: 124.77, y: 114.1333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8207065639575546585
@@ -67,8 +68,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1919403689, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: -1893155103, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -122,8 +123,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenuToGame, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: OpenSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -133,6 +134,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8573141076835172744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225475529353059201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d398410c0fdd5f24daa8d511118cba82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButonSesi
+  sfxHoparloru: {fileID: 0}
+  uzerineGelmeSesi: {fileID: 8300000, guid: 95472b9978189a045b49fec97a425e18, type: 3}
+  tiklamaSesi: {fileID: 0}
 --- !u!1 &598748744650985505
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,8 +183,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.2332, y: 35.4986}
-  m_SizeDelta: {x: 560.2806, y: 414.9372}
+  m_AnchoredPosition: {x: 32.666397, y: 32.090706}
+  m_SizeDelta: {x: 1246.1428, y: 442.311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7660011892720857675
 CanvasRenderer:
@@ -191,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16126879, g: 0.08214305, b: 0.5245282, a: 0.8980392}
+  m_Color: {r: 0.16126879, g: 0.08214305, b: 0.5245282, a: 0.42745098}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -494,6 +510,7 @@ GameObject:
   - component: {fileID: 7005935442592906344}
   - component: {fileID: 3127918856498802055}
   - component: {fileID: 1655546838016172888}
+  - component: {fileID: 4245722239451697212}
   m_Layer: 5
   m_Name: Reload
   m_TagString: Untagged
@@ -518,7 +535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81, y: 57.928}
+  m_AnchoredPosition: {x: 79, y: 51.001}
   m_SizeDelta: {x: 117.8542, y: 115.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7005935442592906344
@@ -549,7 +566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1627276482, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
+  m_Sprite: {fileID: -485932810, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -602,7 +619,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3127918856498802055}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4245722239451697212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338706970314684661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d398410c0fdd5f24daa8d511118cba82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButonSesi
+  sfxHoparloru: {fileID: 0}
+  uzerineGelmeSesi: {fileID: 8300000, guid: 95472b9978189a045b49fec97a425e18, type: 3}
+  tiklamaSesi: {fileID: 0}
 --- !u!1 &3562408630039836473
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,8 +818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 180.71}
-  m_SizeDelta: {x: 513.6218, y: 106.7909}
+  m_AnchoredPosition: {x: 0.367, y: 180.13594}
+  m_SizeDelta: {x: 488.616, y: 107.9391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7147166938807717756
 CanvasRenderer:
@@ -805,8 +849,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1127932050, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 4e5ebb755eb4a1a45b5fa25febf7f7a1, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -964,6 +1008,7 @@ GameObject:
   - component: {fileID: 2636129705859662874}
   - component: {fileID: 8045814283345758787}
   - component: {fileID: 4637631038032416478}
+  - component: {fileID: 6074230217722238004}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -988,7 +1033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80.998, y: -70.998}
+  m_AnchoredPosition: {x: 79.002, y: -78.994}
   m_SizeDelta: {x: 117.85, y: 114.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2636129705859662874
@@ -1019,7 +1064,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1732492175, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
+  m_Sprite: {fileID: -1755208092, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1074,8 +1119,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseManagar, Assembly-CSharp
-        m_MethodName: LoadMenu
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1085,6 +1130,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6074230217722238004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355837615667777206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d398410c0fdd5f24daa8d511118cba82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButonSesi
+  sfxHoparloru: {fileID: 0}
+  uzerineGelmeSesi: {fileID: 8300000, guid: 95472b9978189a045b49fec97a425e18, type: 3}
+  tiklamaSesi: {fileID: 0}
 --- !u!1 &7114755764891677864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1157,7 @@ GameObject:
   - component: {fileID: 1500003670222307810}
   - component: {fileID: 7801742139669715999}
   - component: {fileID: 2077236161648770081}
+  - component: {fileID: 1181540468683798226}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -1121,7 +1182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -87, y: 57.929}
+  m_AnchoredPosition: {x: -82, y: 51.002}
   m_SizeDelta: {x: 124.767, y: 115.8615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1500003670222307810
@@ -1207,8 +1268,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseManagar, Assembly-CSharp
-        m_MethodName: Resume
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1218,6 +1279,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1181540468683798226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114755764891677864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d398410c0fdd5f24daa8d511118cba82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButonSesi
+  sfxHoparloru: {fileID: 0}
+  uzerineGelmeSesi: {fileID: 8300000, guid: 95472b9978189a045b49fec97a425e18, type: 3}
+  tiklamaSesi: {fileID: 0}
 --- !u!1 &7355017365336783015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7958351323123143889
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1242,7 +1318,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7355017365336783015}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 59.55793}
   m_LocalScale: {x: 1.6790556, y: 1.6790556, z: 1.6790556}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1256,6 +1332,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: -34.769}
-  m_SizeDelta: {x: 592.2784, y: 426.04}
+  m_AnchoredPosition: {x: -0.000083923, y: -65}
+  m_SizeDelta: {x: 142.0447, y: 64.3342}
   m_Pivot: {x: 0.5, y: 0.5}

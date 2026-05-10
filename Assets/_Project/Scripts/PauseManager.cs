@@ -1,45 +1,86 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseManagar : MonoBehaviour
+public class PauseManager : MonoBehaviour
 {
-  public GameObject pauseMenuUI;
-  private bool isPaused=false;
-  void Update()
+    [Header("UI Ayarları")]
+    public GameObject pauseMenuUI; 
+    public GameObject settingsMenuUI; 
+
+    private bool isPaused = false;
+
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {
-                Resume();
+                ResumeGame();
             }
             else
             {
-                Pause();
+                PauseGame();
             }
         }
+    }
 
-    }
-    public void Resume()
+    public void PauseGame()
     {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused=false;
+        pauseMenuUI.SetActive(true); 
+        settingsMenuUI.SetActive(false); 
+        Time.timeScale = 0f;         
+        isPaused = true;
+        
+        
+        AudioListener.pause = true; 
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
-    void Pause()
+
+    public void ResumeGame()
     {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale=0f;
-        isPaused=true;
+        pauseMenuUI.SetActive(false); 
+        settingsMenuUI.SetActive(false); 
+        Time.timeScale = 1f;          
+        isPaused = false;
+        
+        // Sesleri tekrar akıtmaya başla
+        AudioListener.pause = false; 
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
-    public void LoadMenu()
+
+    public void RestartGame()
     {
-        Time.timeScale=1f;
-        SceneManager.LoadScene("0_AnaMenu");
+        Time.timeScale = 1f; 
+        
+       
+        AudioListener.pause = false; 
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void QuitGame()
+
+    public void GoToMainMenu()
     {
-        Application.Quit();
-        Debug.Log("Oyundan Cikiliyor");
+        Time.timeScale = 1f; 
+        
+       
+        AudioListener.pause = false; 
+        
+        SceneManager.LoadScene("0_AnaMenu"); 
+    }
+
+    public void OpenSettings()
+    {
+        pauseMenuUI.SetActive(false);    
+        settingsMenuUI.SetActive(true);  
+    }
+
+    public void CloseSettings()
+    {
+        settingsMenuUI.SetActive(false); 
+        pauseMenuUI.SetActive(true);     
     }
 }
