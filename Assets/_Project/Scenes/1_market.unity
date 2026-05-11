@@ -11432,7 +11432,7 @@ MonoBehaviour:
   toplamPuan: 0
   dogruUrunPuani: 5
   yanlisUrunPuani: 5
-  kalanSure: 5
+  kalanSure: 60
   puanYazisi: {fileID: 674181382}
   listeYazisi: {fileID: 412629350}
   sureYazisi: {fileID: 5515742}
