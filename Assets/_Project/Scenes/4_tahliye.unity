@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsLayer
       objectReference: {fileID: 0}
+    - target: {fileID: 745638326190918152, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1025501468881301066, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
       propertyPath: sfxHoparloru
       value: 
