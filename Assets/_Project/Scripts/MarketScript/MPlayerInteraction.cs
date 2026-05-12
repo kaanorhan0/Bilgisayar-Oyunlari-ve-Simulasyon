@@ -8,7 +8,7 @@ public class MPlayerInteraction : MonoBehaviour
     public LayerMask urunKatmani; // Inspector'dan "Item" katmanini secmeyi unutma!
 
     [Header("UI Elemanlari")]
-    public TextMeshProUGUI ekranaYazi; // Buraya ArkaPlan'in ICINDEKI yaziyi sürükle
+    public TextMeshProUGUI ekranaYazi; // Buraya ArkaPlan'in ICINDEKI yaziyi sï¿½rï¿½kle
 
     private GameObject etkilesimPaneli; // ArkaPlan objesini kodla bulacagiz
 
@@ -33,8 +33,8 @@ public class MPlayerInteraction : MonoBehaviour
 
             if (urun != null)
             {
-                // Yaziyi güncelle (Büyük harf ve F [ÜREÜN AL] formati)
-                ekranaYazi.text = "F [" + urun.urunAdi.ToUpper() + " AL]";
+                // Yaziyi gï¿½ncelle (Bï¿½yï¿½k harf ve F [ï¿½REï¿½N AL] formati)
+                ekranaYazi.text = "[F] [" + urun.urunAdi.ToUpper() + " AL]";
 
                 // Paneli (Yesil kutuyu) aktif et
                 if (!etkilesimPaneli.activeSelf)
@@ -42,7 +42,7 @@ public class MPlayerInteraction : MonoBehaviour
                     etkilesimPaneli.SetActive(true);
                 }
 
-                // F tusuna basilirsa üründeki Topla fonksiyonunu tetikle
+                // F tusuna basilirsa ï¿½rï¿½ndeki Topla fonksiyonunu tetikle
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     urun.Topla();
