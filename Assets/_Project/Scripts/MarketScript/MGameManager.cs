@@ -5,35 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class MGameManager : MonoBehaviour
 {
-    [Header("Puan Ayarlarý")]
+    [Header("Puan Ayarlarï¿½")]
     public int toplamPuan = 0;
     public int dogruUrunPuani = 5;
     public int yanlisUrunPuani = 5;
 
-    [Header("Zaman Ayarlarý")]
+    [Header("Zaman Ayarlarï¿½")]
     public float kalanSure = 60f;
     private bool oyunBitti = false;
 
-    [Header("UI Baðlantýlarý (Sürükle-Býrak)")]
-    public TextMeshProUGUI puanYazisi;   // Sað üst Puan Text'i
-    public TextMeshProUGUI listeYazisi;  // Sað üst Liste Text'i
-    public TextMeshProUGUI sureYazisi;   // Sol üst Süre Text'i
-    public GameObject bitisPaneli;       // Süre bitince açýlacak panel (Canvas altýnda Image)
-    public TextMeshProUGUI bitisPuanYazisi; // Paneldeki son puan yazýsý
+    [Header("UI Baï¿½lantï¿½larï¿½ (Sï¿½rï¿½kle-Bï¿½rak)")]
+    public TextMeshProUGUI puanYazisi;   // Saï¿½ ï¿½st Puan Text'i
+    public TextMeshProUGUI listeYazisi;  // Saï¿½ ï¿½st Liste Text'i
+    public TextMeshProUGUI sureYazisi;   // Sol ï¿½st Sï¿½re Text'i
+    public GameObject bitisPaneli;       // Sï¿½re bitince aï¿½ï¿½lacak panel (Canvas altï¿½nda Image)
+    public TextMeshProUGUI bitisPuanYazisi; // Paneldeki son puan yazï¿½sï¿½
 
-    [Header("Alýnacaklar Listesi")]
+    [Header("Alï¿½nacaklar Listesi")]
     // Buraya Inspector'dan SU, FENER, KONSERVE gibi isimleri ekle
     public List<string> alinacaklarListesi = new List<string>();
 
-    // Alýnanlarý takip etmek için (Tekrar puan alýmýný engeller)
+    // Alï¿½nanlarï¿½ takip etmek iï¿½in (Tekrar puan alï¿½mï¿½nï¿½ engeller)
     private List<string> alinanlarLogu = new List<string>();
 
     void Start()
     {
-        // Oyun baþlarken zamaný normal hýzýna getir (Önceki elden donuk kalmasýn)
+        // Oyun baï¿½larken zamanï¿½ normal hï¿½zï¿½na getir (ï¿½nceki elden donuk kalmasï¿½n)
         Time.timeScale = 1f;
 
-        // Bitiþ panelini oyun baþýnda gizle
+        // Bitiï¿½ panelini oyun baï¿½ï¿½nda gizle
         if (bitisPaneli != null) bitisPaneli.SetActive(false);
 
         ArayuzGuncelle();
@@ -43,7 +43,7 @@ public class MGameManager : MonoBehaviour
     {
         if (oyunBitti) return;
 
-        // Süre sayacý geri sayým
+        // Sï¿½re sayacï¿½ geri sayï¿½m
         if (kalanSure > 0)
         {
             kalanSure -= Time.deltaTime;
@@ -56,36 +56,36 @@ public class MGameManager : MonoBehaviour
         }
     }
 
-    // Ürün toplandýðýnda MMarketItem scripti tarafýndan çaðrýlýr
+    // ï¿½rï¿½n toplandï¿½ï¿½ï¿½nda MMarketItem scripti tarafï¿½ndan ï¿½aï¿½rï¿½lï¿½r
     public void UrunAlindi(bool isGerekli, string urunIsmi)
     {
         if (oyunBitti) return;
 
-        // Ýsimdeki boþluklarý sil ve büyük harfe çevir (Hata payýný azaltýr)
+        // ï¿½simdeki boï¿½luklarï¿½ sil ve bï¿½yï¿½k harfe ï¿½evir (Hata payï¿½nï¿½ azaltï¿½r)
         string kontrolIsmi = urunIsmi.ToUpper().Trim();
 
         if (isGerekli)
         {
-            // Eðer ürün listede varsa (Yani bu isimde bir ürün ilk defa alýnýyorsa)
+            // Eï¿½er ï¿½rï¿½n listede varsa (Yani bu isimde bir ï¿½rï¿½n ilk defa alï¿½nï¿½yorsa)
             if (alinacaklarListesi.Contains(kontrolIsmi))
             {
                 toplamPuan += dogruUrunPuani;
                 alinacaklarListesi.Remove(kontrolIsmi); // Listeden sil
-                alinanlarLogu.Add(kontrolIsmi);         // Arþive ekle
-                Debug.Log("<color=green>Yeni Ürün!</color> " + kontrolIsmi + " alýndý. +5 Puan.");
+                alinanlarLogu.Add(kontrolIsmi);         // Arï¿½ive ekle
+                Debug.Log("<color=green>Yeni ï¿½rï¿½n!</color> " + kontrolIsmi + " alï¿½ndï¿½. +5 Puan.");
             }
             else if (alinanlarLogu.Contains(kontrolIsmi))
             {
-                // Zaten alýnmýþ ürün
-                Debug.Log("<color=yellow>Zaten Var:</color> " + kontrolIsmi + " için tekrar puan verilmedi.");
+                // Zaten alï¿½nmï¿½ï¿½ ï¿½rï¿½n
+                Debug.Log("<color=yellow>Zaten Var:</color> " + kontrolIsmi + " iï¿½in tekrar puan verilmedi.");
             }
         }
         else
         {
-            // Yanlýþ ürün puan düþürür ama 0'ýn altýna inmez
+            // Yanlï¿½ï¿½ ï¿½rï¿½n puan dï¿½ï¿½ï¿½rï¿½r ama 0'ï¿½n altï¿½na inmez
             toplamPuan -= yanlisUrunPuani;
             if (toplamPuan < 0) toplamPuan = 0;
-            Debug.Log("<color=red>Yanlýþ Seçim!</color> " + kontrolIsmi + " puan düþürdü. -5 Puan.");
+            Debug.Log("<color=red>Yanlï¿½ï¿½ Seï¿½im!</color> " + kontrolIsmi + " puan dï¿½ï¿½ï¿½rdï¿½. -5 Puan.");
         }
 
         ArayuzGuncelle();
@@ -95,9 +95,9 @@ public class MGameManager : MonoBehaviour
     {
         if (sureYazisi != null)
         {
-            sureYazisi.text = "SÜRE: " + Mathf.CeilToInt(kalanSure).ToString();
+            sureYazisi.text = "SÃœRE: " + Mathf.CeilToInt(kalanSure).ToString();
 
-            // Son 10 saniye kala yazýyý kýrmýzý yap (Heyecan katmak için)
+            // Son 10 saniye kala yazï¿½yï¿½ kï¿½rmï¿½zï¿½ yap (Heyecan katmak iï¿½in)
             if (kalanSure <= 10f)
                 sureYazisi.color = Color.red;
         }
@@ -106,15 +106,15 @@ public class MGameManager : MonoBehaviour
     void SureBitti()
     {
         oyunBitti = true;
-        Time.timeScale = 0f; // DÜNYAYI DURDURUR: Karakter hareket edemez, fizik iþlemez.
+        Time.timeScale = 0f; // Dï¿½NYAYI DURDURUR: Karakter hareket edemez, fizik iï¿½lemez.
 
-        // Mouse'u serbest býrak ki butona týklayabilelim
+        // Mouse'u serbest bï¿½rak ki butona tï¿½klayabilelim
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         if (bitisPaneli != null)
         {
-            bitisPaneli.SetActive(true); // Bitiþ ekranýný aç
+            bitisPaneli.SetActive(true); // Bitiï¿½ ekranï¿½nï¿½ aï¿½
             if (bitisPuanYazisi != null)
                 bitisPuanYazisi.text = "TOPLAM PUANIN: " + toplamPuan;
         }
@@ -122,7 +122,7 @@ public class MGameManager : MonoBehaviour
         Debug.Log("Zaman doldu. Oyun durduruldu.");
     }
 
-    // Arayüzü tazeleyen fonksiyon
+    // Arayï¿½zï¿½ tazeleyen fonksiyon
     void ArayuzGuncelle()
     {
         if (puanYazisi != null)
@@ -134,7 +134,7 @@ public class MGameManager : MonoBehaviour
 
             if (alinacaklarListesi.Count == 0)
             {
-                listeYazisi.text += "<color=green>LÝSTE TAMAMLANDI!</color>";
+                listeYazisi.text += "<color=green>Lï¿½STE TAMAMLANDI!</color>";
             }
             else
             {
@@ -146,7 +146,7 @@ public class MGameManager : MonoBehaviour
         }
     }
 
-    // Butonlar için yardýmcý fonksiyonlar
+    // Butonlar iï¿½in yardï¿½mcï¿½ fonksiyonlar
     public void OyunuYenidenBaslat()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
