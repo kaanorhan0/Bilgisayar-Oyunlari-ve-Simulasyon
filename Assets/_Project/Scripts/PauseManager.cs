@@ -6,6 +6,8 @@ public class PauseManager : MonoBehaviour
     [Header("UI Ayarları")]
     public GameObject pauseMenuUI; 
     public GameObject settingsMenuUI; 
+    public GameObject panelMenuUI;
+    public GameObject settingsMenuUI2;
 
     private bool isPaused = false;
 
@@ -82,5 +84,15 @@ public class PauseManager : MonoBehaviour
     {
         settingsMenuUI.SetActive(false); 
         pauseMenuUI.SetActive(true);     
+    }
+    public void ClosePanel()
+    {
+        panelMenuUI.SetActive(true);
+        settingsMenuUI2.SetActive(false);
+    }
+    public void OpenPanel()
+    {
+        panelMenuUI.SetActive(false);
+        settingsMenuUI2.SetActive(true);
     }
 }
