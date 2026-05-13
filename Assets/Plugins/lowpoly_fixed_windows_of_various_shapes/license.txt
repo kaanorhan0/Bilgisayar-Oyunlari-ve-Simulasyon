@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lowpoly Fixed Windows of Various Shapes
+* source:	https://sketchfab.com/3d-models/lowpoly-fixed-windows-of-various-shapes-c9f626b5fa264a9e93a2776d561123ef
+* author:	makinwhat (https://sketchfab.com/makinwhat)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lowpoly Fixed Windows of Various Shapes" (https://sketchfab.com/3d-models/lowpoly-fixed-windows-of-various-shapes-c9f626b5fa264a9e93a2776d561123ef) by makinwhat (https://sketchfab.com/makinwhat) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
