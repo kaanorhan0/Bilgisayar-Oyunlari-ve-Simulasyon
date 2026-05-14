@@ -5,30 +5,48 @@ public class PlayerAnimations : MonoBehaviour
     private Animator anim;
     private CharacterController controller;
 
+    // Movement scriptinin eriþebilmesi için public býraktýk
+    [HideInInspector] public bool isCrouching = false;
+
     void Start()
     {
-        // Player objesinin içindeki modeldeki Animator'ý bulur
+        // Modelin içindeki Animator'ý ve ana objedeki Controller'ý bulur
         anim = GetComponentInChildren<Animator>();
-        // Ana objedeki Character Controller'ý bulur
-        controller = GetComponent<CharacterController>();
+        controller = GetComponentInParent<CharacterController>();
     }
 
     void Update()
     {
         if (anim == null || controller == null) return;
 
-        // 1. Hýz Parametresini Blend Tree'ye Gönder
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 moveDirection = new Vector3(horizontal, 0, vertical);
+        // --- EÐÝLME (CROUCH) TOGGLE ---
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            isCrouching = !isCrouching;
+            // Animator'daki Bool parametresini tetikler
+            anim.SetBool("isCrouching", isCrouching);
+        }
 
-        // Magnitude 0-1 arasý deðer döner, Blend Tree buna göre Idle/Walk yapar
-        anim.SetFloat("Speed", moveDirection.magnitude);
+        // --- KISITLAMA ---
+        // Eðer karakter çömelmiþse yürüme deðerlerini sýfýrla ve fonksiyonu burada kes
+        if (isCrouching)
+        {
+            anim.SetFloat("Horizontal", 0, 0.1f, Time.deltaTime);
+            anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
+            return;
+        }
 
-        // 2. Yerde Olma Durumunu Güncelle (Havada kalma animasyonu için)
+        // 1. Eksen Deðerlerini Al (A/D ve W/S)
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        // 2. Blend Tree Parametrelerini Güncelle
+        anim.SetFloat("Horizontal", horizontal, 0.1f, Time.deltaTime);
+        anim.SetFloat("Vertical", vertical, 0.1f, Time.deltaTime);
+
+        // 3. Yer Kontrolü ve Zýplama
         anim.SetBool("isGrounded", controller.isGrounded);
 
-        // 3. Zýplama Tetikleyicisi
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             anim.SetTrigger("Jump");
