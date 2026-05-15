@@ -1,0 +1,11 @@
+Model Information:
+* title:	low poly medkit
+* source:	https://sketchfab.com/3d-models/low-poly-medkit-79a1c9091dd5451e812ed859988ab464
+* author:	wmalhaa (https://sketchfab.com/wmalhaa)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "low poly medkit" (https://sketchfab.com/3d-models/low-poly-medkit-79a1c9091dd5451e812ed859988ab464) by wmalhaa (https://sketchfab.com/wmalhaa) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
