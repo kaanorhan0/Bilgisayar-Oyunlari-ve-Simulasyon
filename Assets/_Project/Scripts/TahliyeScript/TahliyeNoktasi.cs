@@ -1,19 +1,18 @@
 using UnityEngine;
-using TMPro;
-using System.Collections; 
-using UnityEngine.SceneManagement; 
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TahliyeNoktasi : MonoBehaviour
 {
     [Header("UI Ayarları")]
     public GameObject tebriklerPaneli;
     public GameObject bg;
-    public CanvasGroup siyahEkran; 
+    public CanvasGroup siyahEkran;
     public GameObject etkilesimYazisi;
     public GameObject etkilesimResmi;
 
     private bool alandaMi = false;
-    private bool oyunBitti = false; 
+    private bool oyunBitti = false;
 
     void Update()
     {
@@ -25,10 +24,9 @@ public class TahliyeNoktasi : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player"))
         {
             alandaMi = true;
-         
             if (etkilesimYazisi != null) etkilesimYazisi.SetActive(true);
             if (etkilesimResmi != null) etkilesimResmi.SetActive(true);
         }
@@ -36,10 +34,9 @@ public class TahliyeNoktasi : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player"))
         {
             alandaMi = false;
-         
             if (etkilesimYazisi != null) etkilesimYazisi.SetActive(false);
             if (etkilesimResmi != null) etkilesimResmi.SetActive(false);
         }
@@ -47,43 +44,47 @@ public class TahliyeNoktasi : MonoBehaviour
 
     private IEnumerator BitisSekansi()
     {
-        oyunBitti = true; 
-        
-      
+        oyunBitti = true;
+
         if (etkilesimYazisi != null) etkilesimYazisi.SetActive(false);
         if (etkilesimResmi != null) etkilesimResmi.SetActive(false);
-        
-       
+
         ZamanYonetici sayac = Object.FindFirstObjectByType<ZamanYonetici>();
+        TGameManager gameManager = Object.FindFirstObjectByType<TGameManager>(); // Yeni isim bağlandı
+
         if (sayac != null)
         {
             sayac.SayaciDurdur();
+            float toplamGecenSure = sayac.GetGecenZaman();
+
+            // Puan hesaplama işini TGameManager'a devrediyoruz
+            if (gameManager != null)
+            {
+                gameManager.PuanHesaplaVeGoster(toplamGecenSure);
+            }
         }
-      
-       
+
         if (tebriklerPaneli != null)
         {
             bg.SetActive(true);
             tebriklerPaneli.SetActive(true);
         }
-   
+
         yield return new WaitForSeconds(3f);
 
-       
         float gecenZaman = 0f;
-        float fadeSuresi = 2f; 
+        float fadeSuresi = 2f;
 
         while (gecenZaman < fadeSuresi)
         {
             gecenZaman += Time.deltaTime;
-            siyahEkran.alpha = gecenZaman / fadeSuresi; 
-            yield return null; 
+            siyahEkran.alpha = gecenZaman / fadeSuresi;
+            yield return null;
         }
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        
-        SceneManager.LoadScene("5_Credits"); 
+
+        SceneManager.LoadScene("5_Credits");
     }
 }
-
