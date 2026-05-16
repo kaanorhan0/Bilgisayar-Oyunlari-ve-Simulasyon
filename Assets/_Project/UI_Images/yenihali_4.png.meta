@@ -461,6 +461,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: yenihali_4_16
+      rect:
+        serializedVersion: 2
+        x: 2656
+        y: 2217
+        width: 965
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd94e32ac85903541933f97281ef9f7f
+      internalID: -2035991626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -485,6 +507,7 @@ TextureImporter:
       yenihali_4_13: -505055288
       yenihali_4_14: -671594683
       yenihali_4_15: -1030660553
+      yenihali_4_16: -2035991626
       yenihali_4_2: 1291478024
       yenihali_4_3: -1468900704
       yenihali_4_4: -37047024
