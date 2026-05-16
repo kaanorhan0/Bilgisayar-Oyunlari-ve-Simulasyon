@@ -33,7 +33,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;         
         isPaused = true;
         
-        
         AudioListener.pause = true; 
 
         Cursor.lockState = CursorLockMode.None;
@@ -47,7 +46,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;          
         isPaused = false;
         
-        // Sesleri tekrar akıtmaya başla
         AudioListener.pause = false; 
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -57,21 +55,27 @@ public class PauseManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f; 
-        
-       
         AudioListener.pause = false; 
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1f; 
-        
-       
+        AudioListener.pause = false; 
+        SceneManager.LoadScene("0_AnaMenu"); 
+    }
+
+    // --- YENİ EKLENEN FONKSİYON: SONRAKİ BÖLÜM ---
+    public void SonrakiBolum()
+    {
+        // Zamanı ve sesleri normale döndür (Bölüm sonu ekranında oyun durmuşsa diye)
+        Time.timeScale = 1f; 
         AudioListener.pause = false; 
         
-        SceneManager.LoadScene("0_AnaMenu"); 
+        // Unity Build Settings'deki mevcut sahnenin sırasını bul ve +1 ekleyerek diğerini aç
+        int siradakiSahneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(siradakiSahneIndex);
     }
 
     public void OpenSettings()
@@ -85,14 +89,16 @@ public class PauseManager : MonoBehaviour
         settingsMenuUI.SetActive(false); 
         pauseMenuUI.SetActive(true);     
     }
+    
     public void ClosePanel()
-    {
-        panelMenuUI.SetActive(true);
-        settingsMenuUI2.SetActive(false);
-    }
-    public void OpenPanel()
     {
         panelMenuUI.SetActive(false);
         settingsMenuUI2.SetActive(true);
+    }
+    
+    public void OpenPanel()
+    {
+        panelMenuUI.SetActive(true);
+        settingsMenuUI2.SetActive(false);
     }
 }

@@ -4,21 +4,20 @@ using TMPro;
 public class MPlayerInteraction : MonoBehaviour
 {
     [Header("Etkilesim Ayarlari")]
-    public float mesafe = 3f;
-    public LayerMask urunKatmani; // Inspector'dan "Item" katmanini secmeyi unutma!
+    public float mesafe = 2.0f; // Mesafeyi biraz daha kısalttık
+    public float isinKalinligi = 0.1f; // Artık ince bir çizgi değil, ince bir silindir atıyoruz
 
     [Header("UI Elemanlari")]
-    public TextMeshProUGUI ekranaYazi; // Buraya ArkaPlan'in ICINDEKI yaziyi s�r�kle
+    public TextMeshProUGUI ekranaYazi;
 
-    private GameObject etkilesimPaneli; // ArkaPlan objesini kodla bulacagiz
+    private GameObject etkilesimPaneli;
 
     void Start()
     {
-        // Yazinin icinde bulundugu ArkaPlan objesini (Parent) buluyoruz
         if (ekranaYazi != null)
         {
             etkilesimPaneli = ekranaYazi.transform.parent.gameObject;
-            etkilesimPaneli.SetActive(false); // Oyun basinda komple gizle
+            etkilesimPaneli.SetActive(false);
         }
     }
 
@@ -26,36 +25,44 @@ public class MPlayerInteraction : MonoBehaviour
     {
         RaycastHit hit;
 
-        // Kameradan ileriye dogru isin firlat
-        if (Physics.Raycast(transform.position, transform.forward, out hit, mesafe, urunKatmani))
+        // Physics.SphereCast: Lazer yerine küçük bir top fırlatır, aralardan sızmaz
+        if (Physics.SphereCast(transform.position, isinKalinligi, transform.forward, out hit, mesafe))
         {
+            // İLK ÇARPTIĞIMIZ ŞEYİ KONTROL EDİYORUZ
             MMarketItem urun = hit.collider.GetComponent<MMarketItem>();
 
+            // Eğer çarptığımız ilk şey ürünse ve başka bir engel (duvar) önünde değilse
             if (urun != null)
             {
-                // Yaziyi g�ncelle (B�y�k harf ve F [�RE�N AL] formati)
                 ekranaYazi.text = "[F] [" + urun.urunAdi.ToUpper() + " AL]";
 
-                // Paneli (Yesil kutuyu) aktif et
                 if (!etkilesimPaneli.activeSelf)
                 {
                     etkilesimPaneli.SetActive(true);
                 }
 
-                // F tusuna basilirsa �r�ndeki Topla fonksiyonunu tetikle
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     urun.Topla();
                 }
             }
+            else
+            {
+                // Eğer ışın önce duvara veya rafa çarparsa buraya girer ve her şeyi kapatır
+                PanelKapat();
+            }
         }
         else
         {
-            // Hicbir seye bakmiyorken paneli gizle
-            if (etkilesimPaneli != null && etkilesimPaneli.activeSelf)
-            {
-                etkilesimPaneli.SetActive(false);
-            }
+            PanelKapat();
+        }
+    }
+
+    void PanelKapat()
+    {
+        if (etkilesimPaneli != null && etkilesimPaneli.activeSelf)
+        {
+            etkilesimPaneli.SetActive(false);
         }
     }
 }
