@@ -1,0 +1,11 @@
+Model Information:
+* title:	Traffic Signs (20+ Assets) / Game Ready
+* source:	https://sketchfab.com/3d-models/traffic-signs-20-assets-game-ready-899f7a40cdc24cbf90bd6c242b2ce03f
+* author:	murattd3v (https://sketchfab.com/murattd3v)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Traffic Signs (20+ Assets) / Game Ready" (https://sketchfab.com/3d-models/traffic-signs-20-assets-game-ready-899f7a40cdc24cbf90bd6c242b2ce03f) by murattd3v (https://sketchfab.com/murattd3v) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
