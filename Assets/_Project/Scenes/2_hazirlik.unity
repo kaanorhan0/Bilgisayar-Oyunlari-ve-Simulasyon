@@ -415,7 +415,7 @@ MonoBehaviour:
   puanYazisi: {fileID: 1756686717}
   finalPuanYazisi: {fileID: 1609469764}
   bolumSonuPaneli: {fileID: 1415940628}
-  kalanSure: 15
+  kalanSure: 90
   mevcutPuan: 0
   hedefPuan: 30
 --- !u!4 &342426909

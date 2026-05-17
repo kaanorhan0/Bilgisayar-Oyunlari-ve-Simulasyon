@@ -10,23 +10,24 @@ public class DepremGameManager : MonoBehaviour
     public float depremSonrasiSure = 15f;
 
     [Header("UI Metinleri (Sadece Sayılar)")]
-    public TextMeshProUGUI zamanText; // Sadece "15", "14" gibi sayılar yazacak
+    public TextMeshProUGUI zamanText;
     public TextMeshProUGUI puanText;
 
     [Header("UI Aşama Yazıları (Canvasta Tasarlananlar)")]
-    public GameObject depremUyariYazisi;  // "DEPREM OLUYOR..." sabit texti/paneli
-    public GameObject tahliyeUyariYazisi; // "EVDEN KAÇMAK İÇİN..." sabit texti/paneli
+    public GameObject depremUyariYazisi;
+    public GameObject tahliyeUyariYazisi;
 
     [Header("Bağlantılar")]
     public KameraSallanti kameraSallanti;
 
     [Header("Bölüm Sonu Paneli Ayarları")]
-    public GameObject bolumSonuPaneli; 
-    public TextMeshProUGUI bitisPuanText; 
-    public GameObject[] gizlenecekArayuzler; 
+    public GameObject bolumSonuPaneli;
+    public TextMeshProUGUI bitisPuanText;
+    public GameObject[] gizlenecekArayuzler;
 
     private PlayerAnimations playerAnim;
     private float asamaZamanlayici = 0f;
+    private int baslangicPuani = 0; // Evden devralınan puan
 
     public enum OyunAsamasi { DepremOncesi, DepremAni, DepremSonrasi, OyunBitti }
     [HideInInspector] public OyunAsamasi mevcutAsama = OyunAsamasi.DepremOncesi;
@@ -38,6 +39,9 @@ public class DepremGameManager : MonoBehaviour
 
     void Start()
     {
+        // Bölüm başında önceki sahnelerin toplam puanını çekiyoruz
+        baslangicPuani = PlayerPrefs.GetInt("GenelPuan", 0);
+
         playerAnim = Object.FindFirstObjectByType<PlayerAnimations>();
 
         if (kameraSallanti != null)
@@ -46,11 +50,10 @@ public class DepremGameManager : MonoBehaviour
         }
 
         if (bolumSonuPaneli != null) bolumSonuPaneli.SetActive(false);
-        
-        // Oyun başında sabit uyarı yazılarını gizle
+
         if (depremUyariYazisi != null) depremUyariYazisi.SetActive(false);
         if (tahliyeUyariYazisi != null) tahliyeUyariYazisi.SetActive(false);
-        
+
         if (zamanText != null) zamanText.text = "";
 
         PuanUIYazdir();
@@ -74,9 +77,8 @@ public class DepremGameManager : MonoBehaviour
                 asamaZamanlayici += Time.deltaTime;
                 int kalanDeprem = Mathf.CeilToInt(depremSuresi - asamaZamanlayici);
 
-                // --- YENİ SİSTEM: Görseli aç, sadece sayıyı yaz ---
                 if (depremUyariYazisi != null) depremUyariYazisi.SetActive(true);
-                if (zamanText != null) zamanText.text = kalanDeprem.ToString(); 
+                if (zamanText != null) zamanText.text = kalanDeprem.ToString();
 
                 if (silindirIcindeMi && playerAnim != null && playerAnim.isCrouching)
                 {
@@ -104,10 +106,9 @@ public class DepremGameManager : MonoBehaviour
                 asamaZamanlayici += Time.deltaTime;
                 int kalanTahliye = Mathf.CeilToInt(depremSonrasiSure - asamaZamanlayici);
 
-                // --- YENİ SİSTEM: Görseli değiştir, sadece sayıyı yaz ---
                 if (depremUyariYazisi != null) depremUyariYazisi.SetActive(false);
                 if (tahliyeUyariYazisi != null) tahliyeUyariYazisi.SetActive(true);
-                if (zamanText != null) zamanText.text = kalanTahliye.ToString(); 
+                if (zamanText != null) zamanText.text = kalanTahliye.ToString();
 
                 if (asamaZamanlayici >= depremSonrasiSure)
                 {
@@ -135,15 +136,19 @@ public class DepremGameManager : MonoBehaviour
     void OyunSonuHesapla()
     {
         mevcutAsama = OyunAsamasi.OyunBitti;
-        toplamPuan = depremDurusPuani + tahliyePuani;
+
+        int buBolumPuani = depremDurusPuani + tahliyePuani;
+        toplamPuan = baslangicPuani + buBolumPuani;
+
+        // Yeni genel toplamı kaydet
+        PlayerPrefs.SetInt("GenelPuan", toplamPuan);
+        PlayerPrefs.Save();
 
         Debug.Log("Bölüm Bitti! Toplam Puan: " + toplamPuan);
 
-        // UI'ları kapat
         if (zamanText != null) zamanText.gameObject.SetActive(false);
         if (puanText != null) puanText.gameObject.SetActive(false);
-        
-        // Yeni: Oyun bitince sabit yazıları da temizle
+
         if (depremUyariYazisi != null) depremUyariYazisi.SetActive(false);
         if (tahliyeUyariYazisi != null) tahliyeUyariYazisi.SetActive(false);
 
@@ -158,14 +163,15 @@ public class DepremGameManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
     }
 
+    // ARTIK OYUN İÇİ EKRANDA DA TOPLAM PUAN GÖZÜKÜYOR
     void PuanUIYazdir()
     {
         if (puanText != null)
         {
-            puanText.text = "Puan: " + (depremDurusPuani + tahliyePuani);
+            puanText.text = "Puan: " + (baslangicPuani + depremDurusPuani + tahliyePuani);
         }
     }
 }

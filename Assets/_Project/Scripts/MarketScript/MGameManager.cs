@@ -27,6 +27,9 @@ public class MGameManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetInt("GenelPuan", 0);
+        PlayerPrefs.Save();
+
         Time.timeScale = 1f;
         if (bitisPaneli != null) bitisPaneli.SetActive(false);
         ArayuzGuncelle();
@@ -62,7 +65,6 @@ public class MGameManager : MonoBehaviour
                 alinacaklarListesi.Remove(kontrolIsmi);
                 alinanlarLogu.Add(kontrolIsmi);
 
-                // LİSTE BİTTİ Mİ KONTROLÜ
                 if (alinacaklarListesi.Count == 0)
                 {
                     OyunBitir();
@@ -91,6 +93,9 @@ public class MGameManager : MonoBehaviour
     {
         oyunBitti = true;
         Time.timeScale = 0f;
+
+        PlayerPrefs.SetInt("GenelPuan", toplamPuan);
+        PlayerPrefs.Save();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

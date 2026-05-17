@@ -8,20 +8,21 @@ public class TGameManager : MonoBehaviour
     public int baslangicPuani = 0;
 
     [Header("UI Elemanları")]
-    public TextMeshProUGUI oyunIciPuanText; // Oyun içi sabit duran puan
-    public TextMeshProUGUI bitisPuanText;    // Paneldeki toplam puan yazısı
+    public TextMeshProUGUI oyunIciPuanText;
+    public TextMeshProUGUI bitisPuanText;
 
     [Header("Panel Ayarları (YENİ)")]
-    public GameObject bolumSonuPaneli; // <-- Butonların ve puanın olduğu o BÜTÜN PANEL
+    public GameObject bolumSonuPaneli;
 
     void Start()
     {
+        baslangicPuani = PlayerPrefs.GetInt("GenelPuan", 0);
+
         if (oyunIciPuanText != null)
         {
             oyunIciPuanText.text = "Puan: " + baslangicPuani;
         }
 
-        // Oyun başında bütün bölüm sonu paneli kapalı başlasın
         if (bolumSonuPaneli != null)
         {
             bolumSonuPaneli.SetActive(false);
@@ -37,11 +38,13 @@ public class TGameManager : MonoBehaviour
         return 0;
     }
 
-    // Bu fonksiyon artık hem puanı hesaplayacak hem de BÜTÜN PANELİ açacak!
     public void PuanHesaplaVeGoster(float finalGecenSure)
     {
         int surePuani = PuanHesapla(finalGecenSure);
         int finalToplamPuan = baslangicPuani + surePuani;
+
+        PlayerPrefs.SetInt("GenelPuan", finalToplamPuan);
+        PlayerPrefs.Save();
 
         if (bitisPuanText != null)
         {
@@ -53,7 +56,6 @@ public class TGameManager : MonoBehaviour
             oyunIciPuanText.text = "Puan: " + finalToplamPuan;
         }
 
-        // --- İŞTE ARADIĞIMIZ VURUŞ: Sadece yazı değil, bütün panel açılıyor ---
         if (bolumSonuPaneli != null)
         {
             bolumSonuPaneli.SetActive(true);

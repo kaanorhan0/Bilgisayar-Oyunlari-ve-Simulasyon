@@ -8,10 +8,18 @@ public class EvGameManager : MonoBehaviour
     public GameObject bolumSonuPaneli;
     public float kalanSure = 60f;
     public int mevcutPuan = 0, hedefPuan = 30;
+
+    private int baslangicPuani = 0; // Marketten devralýnan puan
     private bool oyunBitti = false;
 
     void Awake() { if (Instance == null) Instance = this; Time.timeScale = 1f; }
-    void Start() { PuanYazisiniGuncelle(); }
+
+    void Start()
+    {
+        // Bölüm baþýnda market puanýný çekiyoruz
+        baslangicPuani = PlayerPrefs.GetInt("GenelPuan", 0);
+        PuanYazisiniGuncelle();
+    }
 
     void Update()
     {
@@ -31,12 +39,26 @@ public class EvGameManager : MonoBehaviour
         if (mevcutPuan >= hedefPuan) OyunBitti();
     }
 
-    void PuanYazisiniGuncelle() { puanYazisi.text = "PUAN: " + mevcutPuan; }
+    // ARTIK OYUN ÝÇÝ EKRANDA DA TOPLAM PUAN GÖZÜKÜYOR
+    void PuanYazisiniGuncelle()
+    {
+        if (puanYazisi != null)
+        {
+            puanYazisi.text = "PUAN: " + (baslangicPuani + mevcutPuan);
+        }
+    }
 
     void OyunBitti()
     {
         oyunBitti = true;
-        if (finalPuanYazisi != null) finalPuanYazisi.text = "TOPLAM PUANIN: " + mevcutPuan;
+
+        int genelToplam = baslangicPuani + mevcutPuan;
+
+        // Yeni toplamý kaydet
+        PlayerPrefs.SetInt("GenelPuan", genelToplam);
+        PlayerPrefs.Save();
+
+        if (finalPuanYazisi != null) finalPuanYazisi.text = "TOPLAM PUANIN: " + genelToplam;
         bolumSonuPaneli.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
