@@ -25,6 +25,11 @@ public class MGameManager : MonoBehaviour
     public List<string> alinacaklarListesi = new List<string>();
     private List<string> alinanlarLogu = new List<string>();
 
+    // --- YENİ EKLENEN KISIM: MÜZİK BAĞLANTISI ---
+    [Header("Müzik Ayarları")]
+    public AudioSource arkaPlanMuzigi;
+    // --------------------------------------------
+
     void Start()
     {
         PlayerPrefs.SetInt("GenelPuan", 0);
@@ -92,6 +97,14 @@ public class MGameManager : MonoBehaviour
     void OyunBitir()
     {
         oyunBitti = true;
+
+        // --- YENİ EKLENEN KISIM: MÜZİĞİ SUSTUR ---
+        if (arkaPlanMuzigi != null)
+        {
+            arkaPlanMuzigi.Stop();
+        }
+        // -----------------------------------------
+
         Time.timeScale = 0f;
 
         PlayerPrefs.SetInt("GenelPuan", toplamPuan);
