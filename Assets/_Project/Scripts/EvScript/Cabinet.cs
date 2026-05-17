@@ -10,6 +10,10 @@ public class Cabinet : MonoBehaviour
     private AudioSource audioSource;
     private Coroutine secureCoroutine;
 
+    [Header("Matkap Efekti")]
+    // Havada süzülen matkap ikonunu buraya sürükleyip býrakacaðýz
+    public GameObject matkapIkoni;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -34,8 +38,17 @@ public class Cabinet : MonoBehaviour
         if (audioSource != null) audioSource.Play();
         yield return new WaitForSeconds(sabitlemeSuresi);
         if (audioSource != null) audioSource.Stop();
+
         isSecured = true;
         isSecuring = false;
+
+        // --- MATKAP ÝKONUNU ORTADAN KALDIRMA ---
+        // Sabitleme iþlemi baþarýyla bittiði an matkabý kapatýyoruz
+        if (matkapIkoni != null)
+        {
+            matkapIkoni.SetActive(false);
+        }
+
         if (EvGameManager.Instance != null) EvGameManager.Instance.PuanEkle(5);
     }
 }
