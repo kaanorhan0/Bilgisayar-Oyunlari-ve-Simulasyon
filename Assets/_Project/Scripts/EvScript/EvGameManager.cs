@@ -9,28 +9,49 @@ public class EvGameManager : MonoBehaviour
     public float kalanSure = 60f;
     public int mevcutPuan = 0, hedefPuan = 30;
 
-    private int baslangicPuani = 0; // Marketten devralýnan puan
+    private int baslangicPuani = 0; // Marketten devralÄ±nan puan
     private bool oyunBitti = false;
+    private bool oyunBasladi = false; // <-- YENÄ°: Sinematik bitene kadar false kalacak
+
+    [Header("MÃ¼zik AyarlarÄ±")]
+    public AudioSource arkaPlanMuzigi;
 
     void Awake() { if (Instance == null) Instance = this; Time.timeScale = 1f; }
 
     void Start()
     {
-        // Bölüm baþýnda market puanýný çekiyoruz
         baslangicPuani = PlayerPrefs.GetInt("GenelPuan", 0);
         PuanYazisiniGuncelle();
     }
 
     void Update()
     {
-        if (oyunBitti) return;
+        // --- GÃœNCELLEME: Oyun baÅŸlamadÄ±ysa veya bittiyse sÃ¼re ASLA AKMAZ ---
+        if (!oyunBasladi || oyunBitti) return; 
+        // -----------------------------------------------------------------
+
         if (kalanSure > 0)
         {
             kalanSure -= Time.deltaTime;
-            sureYazisi.text = "SÜRE: " + Mathf.Ceil(kalanSure).ToString();
+            sureYazisi.text = "SÃœRE: " + Mathf.Ceil(kalanSure).ToString();
         }
         else OyunBitti();
     }
+
+    // --- YENÄ° FONKSÄ°YON: Sinematik bittiÄŸinde hem mÃ¼zik baÅŸlayacak hem sÃ¼re sayacak ---
+    public void OyunuVeMuzigiBaslat()
+    {
+        if (oyunBasladi) return; // EÄŸer zaten baÅŸladÄ±ysa tetikleme
+        
+        oyunBasladi = true;
+
+        if (arkaPlanMuzigi != null && !arkaPlanMuzigi.isPlaying)
+        {
+            arkaPlanMuzigi.Play(); // MÃ¼ziÄŸi resmen baÅŸlatÄ±yoruz
+        }
+        Debug.Log("Sinematik bitti, sÃ¼re ve mÃ¼zik baÅŸladÄ±!");
+    }
+    // ---------------------------------------------------------------------------------
 
     public void PuanEkle(int miktar)
     {
@@ -39,7 +60,6 @@ public class EvGameManager : MonoBehaviour
         if (mevcutPuan >= hedefPuan) OyunBitti();
     }
 
-    // ARTIK OYUN ÝÇÝ EKRANDA DA TOPLAM PUAN GÖZÜKÜYOR
     void PuanYazisiniGuncelle()
     {
         if (puanYazisi != null)
@@ -52,13 +72,18 @@ public class EvGameManager : MonoBehaviour
     {
         oyunBitti = true;
 
+        if (arkaPlanMuzigi != null)
+        {
+            arkaPlanMuzigi.Stop();
+        }
+
         int genelToplam = baslangicPuani + mevcutPuan;
 
-        // Yeni toplamý kaydet
         PlayerPrefs.SetInt("GenelPuan", genelToplam);
         PlayerPrefs.Save();
 
         if (finalPuanYazisi != null) finalPuanYazisi.text = "TOPLAM PUANIN: " + genelToplam;
+        
         bolumSonuPaneli.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
