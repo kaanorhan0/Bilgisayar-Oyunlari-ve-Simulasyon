@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic; 
-using TMPro;
 
 public class KameraSallanti : MonoBehaviour
 {
@@ -10,19 +9,13 @@ public class KameraSallanti : MonoBehaviour
     public float savrulmaSiddeti = 1.5f;
     public float dalgaHizi = 3f;
 
-    [Header("Arayüz (UI) Arkaplanları")]
-    public GameObject tehlikePanosu; 
-    public GameObject guvendePanosu; 
-
     [Header("Güvenli Bölge Objeleri")]
     public GameObject[] safeZoneObjeleri; 
 
-    // --- SES SİSTEMİ GÜNCELLENDİ ---
     [Header("Ses ve Fizik Ayarları")]
-    public AudioSource depremSesKaynagi; // Sesi dışarı verecek ana hoparlörümüz
-    public AudioClip[] siraliSesler; // Sırayla çalacak mp3/wav dosyaları
+    public AudioSource depremSesKaynagi; 
+    public AudioClip[] siraliSesler; 
     public GameObject[] dusecekEsyalar; 
-    // -------------------------------
 
     private List<Rigidbody> aktifRigidler = new List<Rigidbody>(); 
 
@@ -30,11 +23,10 @@ public class KameraSallanti : MonoBehaviour
     [HideInInspector] public bool depremOluyorMu = false;
     public bool depremBitti = false; 
 
+    private Coroutine sesDovusCoroutine;
+
     void Start()
     {
-        if(tehlikePanosu != null) tehlikePanosu.SetActive(false);
-        if(guvendePanosu != null) guvendePanosu.SetActive(false);
-        
         foreach (GameObject zone in safeZoneObjeleri)
         {
             if (zone != null) zone.SetActive(false);
@@ -54,8 +46,7 @@ public class KameraSallanti : MonoBehaviour
 
     void EfektleriTetikle()
     {
-        // Sesleri sırayla çalacak sistemi başlatıyoruz
-        StartCoroutine(SesleriSiraylaCal());
+        sesDovusCoroutine = StartCoroutine(SesleriSiraylaCal());
 
         aktifRigidler.Clear();
 
@@ -72,39 +63,29 @@ public class KameraSallanti : MonoBehaviour
         }
     }
 
-    // --- YENİ BÖLÜM: SESLERİ BİRBİRİ ARDINA ÇALAN SİSTEM ---
     IEnumerator SesleriSiraylaCal()
     {
-        // Eğer ses kaynağı yoksa veya liste boşsa hiç yorulma
         if (depremSesKaynagi == null || siraliSesler.Length == 0) yield break;
 
-        // Deprem döngüsü özelliğini kapat (çünkü biz kendimiz sırayla değiştireceğiz)
         depremSesKaynagi.loop = false; 
-
         int sesIndex = 0;
 
-        // Deprem devam ettiği sürece bu döngü döner
         while (depremOluyorMu)
         {
-            // Sıradaki sesi hoparlöre tak
             AudioClip siradakiKlip = siraliSesler[sesIndex];
             depremSesKaynagi.clip = siradakiKlip;
             depremSesKaynagi.Play();
 
-            // Sesin toplam süresi kadar bekle (Örn: uğultu 4 saniyeyse 4 saniye bekler)
             yield return new WaitForSeconds(siradakiKlip.length);
 
-            // Bekleme bitince bir sonraki sese geç
             sesIndex++;
             
-            // Eğer listedeki tüm sesler bittiyse ve deprem hala sürüyorsa, listeyi başa sar
             if (sesIndex >= siraliSesler.Length)
             {
                 sesIndex = 0; 
             }
         }
     }
-    // --------------------------------------------------------
 
     IEnumerator EsyaSarsintiGecikmesi(Rigidbody rb)
     {
@@ -124,7 +105,6 @@ public class KameraSallanti : MonoBehaviour
         depremBitti = false;
         orjinalPozisyon = transform.localPosition;
 
-        if(tehlikePanosu != null) tehlikePanosu.SetActive(true);
         foreach (GameObject zone in safeZoneObjeleri)
         {
             if (zone != null) zone.SetActive(true);
@@ -142,7 +122,7 @@ public class KameraSallanti : MonoBehaviour
             {
                 if (rb != null)
                 {
-                    Vector3 sarsintiGucu = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)) * (savrulmaSiddeti * 0.5f);
+                    Vector3 sarsintiGucu = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)) * (savrulmaSiddeti * 2f);
                     rb.AddForce(sarsintiGucu, ForceMode.Force);
                 }
             }
@@ -151,12 +131,18 @@ public class KameraSallanti : MonoBehaviour
             yield return null;
         }
 
-        // --- GÜNCELLEME: Deprem bitince sesi tamamen sustur ---
+        // --- DEĞİŞEN KISIM: BIÇAK GİBİ KESMEK YERİNE YUMUŞAKÇA KIS ---
+        if (sesDovusCoroutine != null)
+        {
+            StopCoroutine(sesDovusCoroutine);
+        }
+
         if (depremSesKaynagi != null) 
         {
-            depremSesKaynagi.Stop(); 
+            // Sesi 0.5 saniyede yavaşça sıfıra indirip öyle durduran yeni fonksiyonu çağırıyoruz
+            StartCoroutine(SesiYumusakcaKapat(depremSesKaynagi, 0.5f));
         }
-        // --------------------------------------------------------
+        // -------------------------------------------------------------
 
         float donusZamani = 0f;
         Vector3 sonPozisyon = transform.localPosition;
@@ -171,29 +157,30 @@ public class KameraSallanti : MonoBehaviour
         depremOluyorMu = false;
         depremBitti = true; 
 
-        if(tehlikePanosu != null) tehlikePanosu.SetActive(false);
-        if(guvendePanosu != null) guvendePanosu.SetActive(false);
         foreach (GameObject zone in safeZoneObjeleri)
         {
             if (zone != null) zone.SetActive(false);
         }
     }
 
-    public void GuvenliAlanaGirdi()
+    // --- YENİ FONKSİYON: SESİ YAVAŞÇA KISMA ---
+    IEnumerator SesiYumusakcaKapat(AudioSource sesKaynagi, float fadeSuresi)
     {
-        if (depremOluyorMu)
-        {
-            if(tehlikePanosu != null) tehlikePanosu.SetActive(false); 
-            if(guvendePanosu != null) guvendePanosu.SetActive(true);
-        }
-    }
+        float baslangicSesi = sesKaynagi.volume;
+        float gecenZaman = 0f;
 
-    public void GuvenliAlandanCikti()
-    {
-        if (depremOluyorMu)
+        while (gecenZaman < fadeSuresi)
         {
-            if(guvendePanosu != null) guvendePanosu.SetActive(false); 
-            if(tehlikePanosu != null) tehlikePanosu.SetActive(true);
+            gecenZaman += Time.deltaTime;
+            sesKaynagi.volume = Mathf.Lerp(baslangicSesi, 0f, gecenZaman / fadeSuresi);
+            yield return null;
         }
+
+        sesKaynagi.Stop();
+        sesKaynagi.volume = baslangicSesi; // Sonraki depremler için sesi tekrar eski %100 haline getir
     }
+    // ------------------------------------------
+
+    public void GuvenliAlanaGirdi() { }
+    public void GuvenliAlandanCikti() { }
 }
