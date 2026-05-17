@@ -9,9 +9,9 @@ public class EvGameManager : MonoBehaviour
     public float kalanSure = 60f;
     public int mevcutPuan = 0, hedefPuan = 30;
 
-    private int baslangicPuani = 0; // Marketten devralınan puan
-    private bool oyunBitti = false;
-    private bool oyunBasladi = false; // <-- YENİ: Sinematik bitene kadar false kalacak
+    private int baslangicPuani = 0;
+    public bool oyunBitti = false; // <-- PUBLIC yaptık, Cabinet buraya bakacak
+    private bool oyunBasladi = false;
 
     [Header("Müzik Ayarları")]
     public AudioSource arkaPlanMuzigi;
@@ -26,9 +26,7 @@ public class EvGameManager : MonoBehaviour
 
     void Update()
     {
-        // --- GÜNCELLEME: Oyun başlamadıysa veya bittiyse süre ASLA AKMAZ ---
-        if (!oyunBasladi || oyunBitti) return; 
-        // -----------------------------------------------------------------
+        if (!oyunBasladi || oyunBitti) return;
 
         if (kalanSure > 0)
         {
@@ -38,20 +36,12 @@ public class EvGameManager : MonoBehaviour
         else OyunBitti();
     }
 
-    // --- YENİ FONKSİYON: Sinematik bittiğinde hem müzik başlayacak hem süre sayacak ---
     public void OyunuVeMuzigiBaslat()
     {
-        if (oyunBasladi) return; // Eğer zaten başladıysa tetikleme
-        
+        if (oyunBasladi) return;
         oyunBasladi = true;
-
-        if (arkaPlanMuzigi != null && !arkaPlanMuzigi.isPlaying)
-        {
-            arkaPlanMuzigi.Play(); // Müziği resmen başlatıyoruz
-        }
-        Debug.Log("Sinematik bitti, süre ve müzik başladı!");
+        if (arkaPlanMuzigi != null && !arkaPlanMuzigi.isPlaying) arkaPlanMuzigi.Play();
     }
-    // ---------------------------------------------------------------------------------
 
     public void PuanEkle(int miktar)
     {
@@ -62,28 +52,20 @@ public class EvGameManager : MonoBehaviour
 
     void PuanYazisiniGuncelle()
     {
-        if (puanYazisi != null)
-        {
-            puanYazisi.text = "PUAN: " + (baslangicPuani + mevcutPuan);
-        }
+        if (puanYazisi != null) puanYazisi.text = "PUAN: " + (baslangicPuani + mevcutPuan);
     }
 
     void OyunBitti()
     {
         oyunBitti = true;
-
-        if (arkaPlanMuzigi != null)
-        {
-            arkaPlanMuzigi.Stop();
-        }
+        if (arkaPlanMuzigi != null) arkaPlanMuzigi.Stop();
 
         int genelToplam = baslangicPuani + mevcutPuan;
-
         PlayerPrefs.SetInt("GenelPuan", genelToplam);
         PlayerPrefs.Save();
 
         if (finalPuanYazisi != null) finalPuanYazisi.text = "TOPLAM PUANIN: " + genelToplam;
-        
+
         bolumSonuPaneli.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;

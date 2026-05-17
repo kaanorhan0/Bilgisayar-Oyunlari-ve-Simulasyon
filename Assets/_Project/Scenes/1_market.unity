@@ -4713,7 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1 &231024682
 GameObject:
@@ -6462,7 +6462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "\u0130LK YARDIM K\u0130T\u0130"
+  urunAdi: ILK YARDIM KITI
   depremIcinGerekliMi: 1
 --- !u!65 &328405160
 BoxCollider:
@@ -12081,7 +12081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "\u0130LK YARDIM K\u0130T\u0130"
+  urunAdi: ILK YARDIM KITI
   depremIcinGerekliMi: 1
 --- !u!65 &568419191
 BoxCollider:
@@ -12669,7 +12669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "\u0130LK YARDIM K\u0130T\u0130 "
+  urunAdi: 'ILK YARDIM KITI '
   depremIcinGerekliMi: 1
 --- !u!1 &600522106 stripped
 GameObject:
@@ -13521,7 +13521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1 &639733565 stripped
 GameObject:
@@ -16683,7 +16683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "\u0130LK YARDIM K\u0130T\u0130"
+  urunAdi: ILK YARDIM KITI
   depremIcinGerekliMi: 1
 --- !u!1 &781565325 stripped
 GameObject:
@@ -17166,7 +17166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!4 &796858045 stripped
 Transform:
@@ -20695,8 +20695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
-  depremIcinGerekliMi: 0
+  urunAdi: PIL
+  depremIcinGerekliMi: 1
 --- !u!4 &971728768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f0ca47816af63e4fb14f9fde3ffdc07, type: 3}
@@ -20714,7 +20714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!65 &971728771
 BoxCollider:
@@ -20975,7 +20975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1001 &991061892
 PrefabInstance:
@@ -22692,7 +22692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "\u0130LK YARDIM K\u0130T\u0130"
+  urunAdi: ILK YARDIM KITI
   depremIcinGerekliMi: 1
 --- !u!1 &1066482026 stripped
 GameObject:
@@ -23258,7 +23258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1 &1098823639 stripped
 GameObject:
@@ -24393,8 +24393,8 @@ MonoBehaviour:
   - FENER
   - KONSERVE
   - "D\xDCD\xDCK"
-  - "P\u0130L"
-  - "\u0130LK YARDIM K\u0130T\u0130"
+  - PIL
+  - ILK YARDIM KITI
   arkaPlanMuzigi: {fileID: 782178020}
 --- !u!4 &1146202604
 Transform:
@@ -24874,7 +24874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!65 &1165739266
 BoxCollider:
@@ -27076,7 +27076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!65 &1282156787
 BoxCollider:
@@ -28302,7 +28302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1001 &1328244147
 PrefabInstance:
@@ -30635,7 +30635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1 &1432050667 stripped
 GameObject:
@@ -33060,7 +33060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1 &1501128242
 GameObject:
@@ -33995,7 +33995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1 &1535281760 stripped
 GameObject:
@@ -37779,7 +37779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "\u0130LK YARDIM K\u0130T\u0130"
+  urunAdi: ILK YARDIM KITI
   depremIcinGerekliMi: 1
 --- !u!1 &1720623600
 GameObject:
@@ -41508,7 +41508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "\u0130LK YARDIM K\u0130T\u0130"
+  urunAdi: ILK YARDIM KITI
   depremIcinGerekliMi: 1
 --- !u!65 &1877161261
 BoxCollider:
@@ -41812,7 +41812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!4 &1897845858 stripped
 Transform:
@@ -41898,7 +41898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1 &1909918481 stripped
 GameObject:
@@ -41957,7 +41957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "\u0130LK YARDIM K\u0130T\u0130"
+  urunAdi: ILK YARDIM KITI
   depremIcinGerekliMi: 1
 --- !u!65 &1910539066
 BoxCollider:
@@ -44702,7 +44702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d42c2cca3ce45b81a532c91bd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MMarketItem
-  urunAdi: "P\u0130L"
+  urunAdi: PIL
   depremIcinGerekliMi: 1
 --- !u!1 &2009799447
 GameObject:

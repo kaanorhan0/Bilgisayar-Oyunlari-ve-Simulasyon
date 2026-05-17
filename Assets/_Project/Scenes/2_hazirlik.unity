@@ -484,6 +484,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 627084213}
   - {fileID: 814646661}
   - {fileID: 1343302084}
   - {fileID: 81281445}
@@ -640,6 +641,7 @@ MonoBehaviour:
   kalanSure: 60
   mevcutPuan: 0
   hedefPuan: 30
+  oyunBitti: 0
   arkaPlanMuzigi: {fileID: 1755366778}
 --- !u!4 &342426909
 Transform:
@@ -1323,12 +1325,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627084210}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.015, y: 2.837, z: 10.15}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.78321, y: -0.5538702, z: 10.99554}
   m_LocalScale: {x: 0.07222256, y: 0.07222256, z: 0.07222256}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 134111536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &711561820
 GameObject:
@@ -6802,7 +6804,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 354648727586626243, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.882
+      value: 0.879
       objectReference: {fileID: 0}
     - target: {fileID: 354648727586626243, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7220,7 +7222,6 @@ SceneRoots:
   - {fileID: 136095225}
   - {fileID: 1944710021}
   - {fileID: 1208561388}
-  - {fileID: 627084213}
   - {fileID: 134111536}
   - {fileID: 1569594797}
   - {fileID: 1755366779}
