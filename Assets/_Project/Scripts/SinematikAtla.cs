@@ -9,9 +9,9 @@ public class SinematikAtla : MonoBehaviour
 
     void Update()
     {
-        // 1. Oyuncu klavyeden 'Space' (Boşluk) tuşuna bastı mı?
+        // 1. Oyuncu klavyeden 'Return' (Enter) tuşuna bastı mı?
         // 2. Sinematik hala devam ediyor mu? (Şu anki zaman, toplam süreden küçük mü?)
-        if (Input.GetKeyDown(KeyCode.Space) && director.time < director.duration)
+        if (Input.GetKeyDown(KeyCode.Return) && director.time < director.duration)
         {
             // Zaman Çizelgesini (Timeline) anında en son saniyeye ışınla
             director.time = director.duration;
