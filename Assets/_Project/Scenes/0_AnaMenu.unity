@@ -1718,8 +1718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 298.89, y: -344.13986}
-  m_SizeDelta: {x: 597.77, y: 688.2697}
+  m_AnchoredPosition: {x: 298.89, y: -350.06558}
+  m_SizeDelta: {x: 597.77, y: 725.117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680579447
 MonoBehaviour:
@@ -1930,8 +1930,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: -0.00049973}
-  m_SizeDelta: {x: 1920, y: 732.58}
+  m_AnchoredPosition: {x: -0.000030518, y: -17.4396}
+  m_SizeDelta: {x: 1920, y: 948.9752}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851232170
 MonoBehaviour:
@@ -2235,6 +2235,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1509377385}
     - target: {fileID: 1353842150588946606, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
+      propertyPath: acikGorsel
+      value: 
+      objectReference: {fileID: -35969946, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
+    - target: {fileID: 1353842150588946606, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
       propertyPath: kontrolEdilecekSes
       value: 
       objectReference: {fileID: 1509377385}
@@ -2252,11 +2256,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319276463250303407, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 156.0506
+      value: 137
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319276463250303407, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.16496
       objectReference: {fileID: 0}
     - target: {fileID: 4319276463250303407, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -229.43028
+      value: -223
       objectReference: {fileID: 0}
     - target: {fileID: 5585380421730611169, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
       propertyPath: m_Pivot.x
@@ -2343,6 +2351,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1509377385}
     - target: {fileID: 6107734262346737361, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
+      propertyPath: kapaliGorsel
+      value: 
+      objectReference: {fileID: 1856587992, guid: 4b9b0451363015f40b8bd1b022b57b4c, type: 3}
+    - target: {fileID: 6107734262346737361, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
       propertyPath: kontrolEdilecekSes
       value: 
       objectReference: {fileID: 1509377385}
@@ -2350,10 +2362,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1926593839}
+    - target: {fileID: 6557176459736841441, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
+      propertyPath: m_Color.a
+      value: 0.68235296
+      objectReference: {fileID: 0}
     - target: {fileID: 7711846973001192666, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
       propertyPath: sfxHoparloru
       value: 
       objectReference: {fileID: 1509377385}
+    - target: {fileID: 8113881551498608896, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 597.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113881551498608896, guid: fb2da94eb6c18ef4d8a9b0c3dde1f149, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 298.89
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
