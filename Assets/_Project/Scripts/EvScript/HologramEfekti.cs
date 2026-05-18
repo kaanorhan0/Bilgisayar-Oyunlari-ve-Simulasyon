@@ -48,6 +48,6 @@ public class HologramEfekti : MonoBehaviour
         transform.localScale = baslangicScale * scaleCarpani;
 
         // 4. Billboard Efekti (Oyuncu nereden bakarsa baksýn ikon kameraya döner)
-        transform.LookAt(transform.position + kameraTransform.rotation * Vector3.forward, kameraTransform.rotation * Vector3.up);
+        // transform.LookAt(transform.position + kameraTransform.rotation * Vector3.forward, kameraTransform.rotation * Vector3.up);
     }
 }
