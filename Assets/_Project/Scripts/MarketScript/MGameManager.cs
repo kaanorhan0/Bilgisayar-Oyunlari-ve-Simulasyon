@@ -25,10 +25,8 @@ public class MGameManager : MonoBehaviour
     public List<string> alinacaklarListesi = new List<string>();
     private List<string> alinanlarLogu = new List<string>();
 
-    // --- YENİ EKLENEN KISIM: MÜZİK BAĞLANTISI ---
     [Header("Müzik Ayarları")]
     public AudioSource arkaPlanMuzigi;
-    // --------------------------------------------
 
     void Start()
     {
@@ -51,7 +49,9 @@ public class MGameManager : MonoBehaviour
         }
         else
         {
+            // SURE BITINCE CEZA: PUAN SIFIRLANIR
             kalanSure = 0;
+            toplamPuan = 0;
             OyunBitir();
         }
     }
@@ -69,11 +69,6 @@ public class MGameManager : MonoBehaviour
                 toplamPuan += dogruUrunPuani;
                 alinacaklarListesi.Remove(kontrolIsmi);
                 alinanlarLogu.Add(kontrolIsmi);
-
-                if (alinacaklarListesi.Count == 0)
-                {
-                    OyunBitir();
-                }
             }
         }
         else
@@ -85,11 +80,18 @@ public class MGameManager : MonoBehaviour
         ArayuzGuncelle();
     }
 
+    // KASADAKİ SCRIPT BURAYI TETİKLER
+    public void AlisverisiTamamla()
+    {
+        if (oyunBitti) return;
+        OyunBitir();
+    }
+
     void SureyiGuncelleUI()
     {
         if (sureYazisi != null)
         {
-            sureYazisi.text = "SÜRE: " + Mathf.CeilToInt(kalanSure).ToString();
+            sureYazisi.text = "SURE: " + Mathf.CeilToInt(kalanSure).ToString();
             if (kalanSure <= 10f) sureYazisi.color = Color.red;
         }
     }
@@ -98,12 +100,10 @@ public class MGameManager : MonoBehaviour
     {
         oyunBitti = true;
 
-        // --- YENİ EKLENEN KISIM: MÜZİĞİ SUSTUR ---
         if (arkaPlanMuzigi != null)
         {
             arkaPlanMuzigi.Stop();
         }
-        // -----------------------------------------
 
         Time.timeScale = 0f;
 
@@ -130,9 +130,16 @@ public class MGameManager : MonoBehaviour
         {
             listeYazisi.text = "ALINMASI GEREKENLER\n\n";
 
-            foreach (string urun in alinacaklarListesi)
+            if (alinacaklarListesi.Count == 0)
             {
-                listeYazisi.text += "- " + urun.ToUpper() + "\n";
+                listeYazisi.text += "<color=green>LISTE BITTI!\nKASAYA GIT</color>";
+            }
+            else
+            {
+                foreach (string urun in alinacaklarListesi)
+                {
+                    listeYazisi.text += "- " + urun.ToUpper() + "\n";
+                }
             }
         }
     }

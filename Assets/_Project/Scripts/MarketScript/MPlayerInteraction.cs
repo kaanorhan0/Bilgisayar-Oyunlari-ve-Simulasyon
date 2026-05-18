@@ -4,8 +4,8 @@ using TMPro;
 public class MPlayerInteraction : MonoBehaviour
 {
     [Header("Etkilesim Ayarlari")]
-    public float mesafe = 2.0f; // Mesafeyi biraz daha kısalttık
-    public float isinKalinligi = 0.1f; // Artık ince bir çizgi değil, ince bir silindir atıyoruz
+    public float mesafe = 2.0f;
+    public float isinKalinligi = 0.1f;
 
     [Header("UI Elemanlari")]
     public TextMeshProUGUI ekranaYazi;
@@ -25,14 +25,13 @@ public class MPlayerInteraction : MonoBehaviour
     {
         RaycastHit hit;
 
-        // Physics.SphereCast: Lazer yerine küçük bir top fırlatır, aralardan sızmaz
         if (Physics.SphereCast(transform.position, isinKalinligi, transform.forward, out hit, mesafe))
         {
-            // İLK ÇARPTIĞIMIZ ŞEYİ KONTROL EDİYORUZ
             MMarketItem urun = hit.collider.GetComponent<MMarketItem>();
+            MKasa kasa = hit.collider.GetComponent<MKasa>(); // Kasayı arıyoruz
 
-            // Eğer çarptığımız ilk şey ürünse ve başka bir engel (duvar) önünde değilse
-            if (urun != null)
+            // 1. DURUM: EĞER BAKTIĞIMIZ ŞEY BİR ÜRÜNSE VE DAHA ÖNCE ALINMAMIŞSA (enabled ise)
+            if (urun != null && urun.enabled)
             {
                 ekranaYazi.text = "[F] [" + urun.urunAdi.ToUpper() + " AL]";
 
@@ -44,11 +43,28 @@ public class MPlayerInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     urun.Topla();
+                    PanelKapat(); // Bastığımız an paneli kapat ki takılı kalmasın
                 }
             }
+            // 2. DURUM: EĞER BAKTIĞIMIZ ŞEY YENİ EKLEDİĞİMİZ KASAYSA
+            else if (kasa != null)
+            {
+                ekranaYazi.text = "[F] [ALIŞVERİŞİ TAMAMLA]";
+
+                if (!etkilesimPaneli.activeSelf)
+                {
+                    etkilesimPaneli.SetActive(true);
+                }
+
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    kasa.AlisverisiBitir();
+                    PanelKapat();
+                }
+            }
+            // 3. DURUM: DUVARA, RAFA VEYA ALINMIŞ BİR ÜRÜNE BAKIYORSAK
             else
             {
-                // Eğer ışın önce duvara veya rafa çarparsa buraya girer ve her şeyi kapatır
                 PanelKapat();
             }
         }

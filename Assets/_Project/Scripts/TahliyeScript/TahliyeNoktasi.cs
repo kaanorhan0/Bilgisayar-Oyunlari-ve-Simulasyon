@@ -11,8 +11,14 @@ public class TahliyeNoktasi : MonoBehaviour
     public GameObject etkilesimYazisi;
     public GameObject etkilesimResmi;
 
-    [Header("Kapatılacak Oyun İçi Ekranlar (YENİ)")]
-    public GameObject[] gizlenecekArayuzler; // Süre, oyun içi puan, crosshair vs. buraya atılacak
+    [Header("Kapatılacak Oyun İçi Ekranlar")]
+    public GameObject[] gizlenecekArayuzler;
+
+    [Header("Işınlanma Ayarları")]
+    [Tooltip("Stadyumun içindeki ışınlanma noktasını buraya sürükle")]
+    public Transform stadyumIciNoktasi;
+    [Tooltip("Kendi karakterini (Player) buraya sürükle")]
+    public GameObject oyuncu;
 
     private bool alandaMi = false;
     private bool oyunBitti = false;
@@ -53,33 +59,64 @@ public class TahliyeNoktasi : MonoBehaviour
         if (etkilesimResmi != null) etkilesimResmi.SetActive(false);
 
         ZamanYonetici sayac = Object.FindFirstObjectByType<ZamanYonetici>();
-        TGameManager gameManager = Object.FindFirstObjectByType<TGameManager>(); 
+        TGameManager gameManager = Object.FindFirstObjectByType<TGameManager>();
 
-        // --- YENİ: SÜREYİ VE SİRENLERİ ANINDA KESİYORUZ ---
         // E tuşuna basıldığı an zaman donar ve siren sesi anında durur
         if (sayac != null)
         {
             sayac.SayaciDurdur();
         }
+
+        // --- IŞINLANMA İŞLEMİ ---
+        if (oyuncu != null && stadyumIciNoktasi != null)
+        {
+            Debug.Log("Işınlanma kodu çalıştı!");
+
+            CharacterController cc = oyuncu.GetComponent<CharacterController>();
+            Rigidbody rb = oyuncu.GetComponent<Rigidbody>();
+
+            // Fiziksel hesaplamaları anlık olarak durduruyoruz
+            if (cc != null) cc.enabled = false;
+            if (rb != null) rb.isKinematic = true;
+
+            // Karakteri stadyuma taşıyoruz
+            oyuncu.transform.position = stadyumIciNoktasi.position;
+            oyuncu.transform.rotation = stadyumIciNoktasi.rotation;
+
+            // Unity'nin fizik motoruna pozisyonun değiştiğini zorla kabul ettiriyoruz
+            Physics.SyncTransforms();
+
+            // Fiziksel hesaplamaları geri açıyoruz
+            if (cc != null) cc.enabled = true;
+            if (rb != null) rb.isKinematic = false;
+        }
+        else
+        {
+            Debug.LogWarning("Kanka Inspector'da Oyuncu veya Stadyum boş kalmış, atamaları kontrol et!");
+        }
+
+        // Karakter stadyumun içine ışınlandı. Şimdi 3 saniye etrafa bakması için bekletiyoruz
+        yield return new WaitForSeconds(3f);
         // -------------------------------------------------
 
+        // 3 saniye bittikten sonra normal bitiş ekranlarını gösteriyoruz
         if (tebriklerPaneli != null)
         {
             if (bg != null) bg.SetActive(true);
             tebriklerPaneli.SetActive(true);
         }
 
-        // Tebrik yazısı ekrandayken artık süre akmayacak ve ses gelmeyecek
+        // Tebrik yazısı ekrandayken 2.5 saniye daha bekle
         yield return new WaitForSeconds(2.5f);
 
         float gecenZaman = 0f;
         float fadeSuresi = 1.5f;
-        float maksimumKararma = 0.7f; 
+        float maksimumKararma = 0.7f;
 
         while (gecenZaman < fadeSuresi)
         {
             gecenZaman += Time.deltaTime;
-            siyahEkran.alpha = (gecenZaman / fadeSuresi) * maksimumKararma; 
+            siyahEkran.alpha = (gecenZaman / fadeSuresi) * maksimumKararma;
             yield return null;
         }
 
@@ -90,7 +127,7 @@ public class TahliyeNoktasi : MonoBehaviour
             if (arayuz != null) arayuz.SetActive(false);
         }
 
-        // Durdurulmuş olan o temiz nihai zamanı alıp puanı hesaplatıyoruz ve genel paneli açıyoruz
+        // Durdurulmuş temiz zamanı alıp puanı hesaplatıyoruz
         if (gameManager != null && sayac != null)
         {
             gameManager.PuanHesaplaVeGoster(sayac.GetGecenZaman());
@@ -99,6 +136,6 @@ public class TahliyeNoktasi : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
     }
 }
