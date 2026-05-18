@@ -291,8 +291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreditsManager
   yaziRect: {fileID: 665138743}
-  akisHizi: 70
-  beklemeSuresi: 20
+  akisHizi: 40
+  beklemeSuresi: 92.8
 --- !u!1 &518347171
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,8 +327,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -38.545654, y: 13.239502}
-  m_SizeDelta: {x: 1046.7405, y: 830.4998}
+  m_AnchoredPosition: {x: -12.733398, y: -18.477722}
+  m_SizeDelta: {x: 1098.365, y: 893.9343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &518347173
 MonoBehaviour:
@@ -368,6 +368,135 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518347171}
   m_CullTransparentMesh: 1
+--- !u!1 &548644042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548644044}
+  - component: {fileID: 548644043}
+  m_Layer: 0
+  m_Name: CreditsMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &548644043
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548644042}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 2663261007282744004, guid: 4b115b5111ea7a64499c293e26b6899f, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: de3af8a7d9b1b87409d5c5edb82db3a8, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.651
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &548644044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548644042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 476.4424, y: 208.3197, z: -102.92434}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665138742
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000019073, y: -698}
+  m_AnchoredPosition: {x: 0.000019073, y: -1794}
   m_SizeDelta: {x: 486.1329, y: 639.7986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &665138744
@@ -425,10 +554,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Deprem Sim\xFClasyonu Oyunu\r\n\r\nProje Ekibi\r\n\r\nKaan Orhan\r\n(UI 
-    Tasar\u0131mc\u0131s\u0131 & Fizik Sorumlusu)\r\n\r\nAhmet Demirbilek\r\n(G\xF6rsel
-    Sorumlusu & \xC7evre Tasar\u0131mc\u0131s\u0131 )\r\n\r\nRecep Ali Bayo\u011Flu\r\n(Karakter
-    Tasar\u0131mc\u0131s\u0131 & Teknik Sorumlusu)"
+  m_text: "Deprem sim\xFClasyon oyunu\nBir Afet Fark\u0131ndal\u0131k ve Sim\xFClasyon
+    Projesi\n\n\u2014 gelistirici EKIP \u2014\n\nAhmet Demirbilek\n\nHarita ve \xC7evre
+    Tasar\u0131m\u0131 (Level & Environment Design)\n\nSinematik Y\xF6netimi ve Kamera
+    Animasyonlar\u0131 (Cinematics & Directing)\n\nAtmosFer, Is\u0131kland\u0131rma
+    ve G\xF6rsel D\xFCzenlemeler\n\nKaan Orhan\n\nKullan\u0131c\u0131 Aray\xFCz\xFC
+    (UI) ve Kullan\u0131c\u0131 Deneyimi (Ux) Tasar\u0131m\u0131\n\nDeprem Fizigi
+    ve Sars\u0131nt\u0131 Sistemleri (Physics Programming)\n\nOyun \u0131\xE7i Ses
+    Sistemleri ve M\xFCzik Entegrasyonlar\u0131 (Audio Engineering)\n\nRecep Ali
+    Bayoglu\n\nKarakter Modelleme ve Animasyonlar\u0131 (Character Design)\n\nTeknik
+    Y\xF6netim ve Optimizasyon (Technical Lead)\n\nTemel Oyun Mekanikleri ve Sistem
+    Altyap\u0131s\u0131 (Core Mechanics)\n\n\u2014 KULLANILAN TEKNOLOjiLER VE ARA\xC7LAR
+    \u2014\n\nOyun Motoru: Unity 6\n\nProgramlama: C# Scripting\n\nS\xFCr\xFCm Kontrol\xFC:
+    Git & GitHub\n\nAray\xFCz Altyap\u0131s\u0131: TextMeshPro\n\n\u2014 \xD6ZEL
+    TEsEKK\xDCRLER (SPECIAL THANKS) \u2014\n\nBursa Uludag \xDCniversitesi'ne,\n\n\u0131neg\xF6l
+    Belediyesi \xC7ocuk Odakl\u0131 AFet Temal\u0131 Dijital Oyun Yar\u0131smas\u0131
+    Organizasyonuna,\n\nGelistirme s\xFCrecinde testlerimize kat\u0131l\u0131p bize
+    geri bildirim veren t\xFCm dostlar\u0131m\u0131za...\n\n\u2014 YAPIM YILI \u2014\n2026\n\n\"Deprem
+    degil, tedbirsizlik \xF6ld\xFCr\xFCr.\"\nOynad\u0131g\u0131n\u0131z i\xE7in Tesekk\xFCr
+    Ederiz..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -455,8 +599,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 36.48
+  m_fontSizeBase: 36.48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -836,3 +980,4 @@ SceneRoots:
   - {fileID: 203844589}
   - {fileID: 1560066900}
   - {fileID: 2067353386}
+  - {fileID: 548644044}
