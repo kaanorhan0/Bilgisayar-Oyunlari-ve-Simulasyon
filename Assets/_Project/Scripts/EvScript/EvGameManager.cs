@@ -22,6 +22,7 @@ public class EvGameManager : MonoBehaviour
     {
         baslangicPuani = PlayerPrefs.GetInt("GenelPuan", 0);
         PuanYazisiniGuncelle();
+        OyunuVeMuzigiBaslat();
     }
 
     void Update()
