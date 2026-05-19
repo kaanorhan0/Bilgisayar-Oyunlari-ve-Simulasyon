@@ -29,6 +29,18 @@ public class TGameManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        // Sahnedeki tüm NPC'leri buluyoruz
+        NPCYapayZeka[] tumNPCler = FindObjectsOfType<NPCYapayZeka>();
+
+        // Hepsine tek tek "Harekete geç" emrini gönderiyoruz
+        foreach (NPCYapayZeka npc in tumNPCler)
+        {
+            npc.HareketeGec();
+        }
+    }
+
     private int PuanHesapla(float gecenSure)
     {
         if (gecenSure >= 0f && gecenSure <= 45f) return 20;
