@@ -556,22 +556,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Deprem sim\xFClasyon oyunu\nBir Afet Fark\u0131ndal\u0131k ve Sim\xFClasyon
     Projesi\n\n\u2014 gelistirici EKIP \u2014\n\nAhmet Demirbilek\n\nHarita ve \xC7evre
-    Tasar\u0131m\u0131 (Level & Environment Design)\n\nSinematik Y\xF6netimi ve Kamera
+    Tasar\u0131m\u0131 (Level & Environment Design)\n\nSinematik Y\xD6netimi ve Kamera
     Animasyonlar\u0131 (Cinematics & Directing)\n\nAtmosFer, Is\u0131kland\u0131rma
-    ve G\xF6rsel D\xFCzenlemeler\n\nKaan Orhan\n\nKullan\u0131c\u0131 Aray\xFCz\xFC
+    ve G\xD6Rsel D\xFCzenlemeler\n\nKaan Orhan\n\nKullan\u0131c\u0131 Aray\xFCz\xFC
     (UI) ve Kullan\u0131c\u0131 Deneyimi (Ux) Tasar\u0131m\u0131\n\nDeprem Fizigi
     ve Sars\u0131nt\u0131 Sistemleri (Physics Programming)\n\nOyun \u0131\xE7i Ses
     Sistemleri ve M\xFCzik Entegrasyonlar\u0131 (Audio Engineering)\n\nRecep Ali
     Bayoglu\n\nKarakter Modelleme ve Animasyonlar\u0131 (Character Design)\n\nTeknik
-    Y\xF6netim ve Optimizasyon (Technical Lead)\n\nTemel Oyun Mekanikleri ve Sistem
+    Y\xD6netim ve Optimizasyon (Technical Lead)\n\nTemel Oyun Mekanikleri ve Sistem
     Altyap\u0131s\u0131 (Core Mechanics)\n\n\u2014 KULLANILAN TEKNOLOjiLER VE ARA\xC7LAR
     \u2014\n\nOyun Motoru: Unity 6\n\nProgramlama: C# Scripting\n\nS\xFCr\xFCm Kontrol\xFC:
     Git & GitHub\n\nAray\xFCz Altyap\u0131s\u0131: TextMeshPro\n\n\u2014 \xD6ZEL
-    TEsEKK\xDCRLER (SPECIAL THANKS) \u2014\n\nBursa Uludag \xDCniversitesi'ne,\n\n\u0131neg\xF6l
+    TEsEKK\xDCRLER (SPECIAL THANKS) \u2014\n\nBursa Uludag \xDCniversitesi'ne,\n\n\u0131neg\xD6l
     Belediyesi \xC7ocuk Odakl\u0131 AFet Temal\u0131 Dijital Oyun Yar\u0131smas\u0131
     Organizasyonuna,\n\nGelistirme s\xFCrecinde testlerimize kat\u0131l\u0131p bize
     geri bildirim veren t\xFCm dostlar\u0131m\u0131za...\n\n\u2014 YAPIM YILI \u2014\n2026\n\n\"Deprem
-    degil, tedbirsizlik \xF6ld\xFCr\xFCr.\"\nOynad\u0131g\u0131n\u0131z i\xE7in Tesekk\xFCr
+    degil, tedbirsizlik \xD6Ld\xFCr\xFCr.\"\nOynad\u0131g\u0131n\u0131z i\xE7in Tesekk\xFCr
     Ederiz..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
