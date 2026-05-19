@@ -7075,6 +7075,18 @@ PrefabInstance:
       propertyPath: arkaplanPaneli
       value: 
       objectReference: {fileID: 1147982636}
+    - target: {fileID: 5147724933832343665, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147724933832343665, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147724933832343665, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6884951027264276975, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
       propertyPath: m_IsActive
       value: 1
