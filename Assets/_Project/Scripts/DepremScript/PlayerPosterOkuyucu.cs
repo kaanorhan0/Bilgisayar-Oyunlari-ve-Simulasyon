@@ -15,6 +15,7 @@ public class PlayerPosterOkuyucu : MonoBehaviour
     [Header("Senin Özel Büyük 112 Panelin")]
     public GameObject ozelPanel;
     public TextMeshProUGUI panelMetni;
+    
 
     private bool panelAcikMi = false;
 
