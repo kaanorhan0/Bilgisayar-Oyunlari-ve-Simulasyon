@@ -25880,7 +25880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958351323123143889, guid: 2834556c9fcb27c499a066a72397f4ea, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -12.999817
+      value: -12.999756
       objectReference: {fileID: 0}
     - target: {fileID: 7958351323123143889, guid: 2834556c9fcb27c499a066a72397f4ea, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -55014,6 +55014,7 @@ PrefabInstance:
     - {fileID: 1107822864323532586, guid: a4ae5599579630445bfaf6a16e8c7a75, type: 3}
     - {fileID: 2356750422201367895, guid: a4ae5599579630445bfaf6a16e8c7a75, type: 3}
     - {fileID: 5739128961596699458, guid: a4ae5599579630445bfaf6a16e8c7a75, type: 3}
+    - {fileID: 8927633981403428350, guid: a4ae5599579630445bfaf6a16e8c7a75, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 722902807155663506, guid: a4ae5599579630445bfaf6a16e8c7a75, type: 3}
       insertIndex: 1

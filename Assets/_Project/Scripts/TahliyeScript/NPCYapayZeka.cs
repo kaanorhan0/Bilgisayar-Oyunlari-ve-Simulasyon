@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+// 1. ZIRH: Sen bu kodu bir NPC'ye sürüklediðinde Unity otomatik olarak "NavMeshAgent" ekler. Unutma ihtimalin ortadan kalkar!
+[RequireComponent(typeof(NavMeshAgent))]
 public class NPCYapayZeka : MonoBehaviour
 {
     [Header("Gidilecek Yer")]
@@ -10,7 +12,7 @@ public class NPCYapayZeka : MonoBehaviour
     private NavMeshAgent ajan;
     private Animator anim;
 
-    // NPC'yi durduracak frenimiz
+    // NPC'yi durduracak frenimiz (Oyun baþlarken false, sinematikte beklerler)
     public bool hareketSerbest = false;
 
     void Start()
@@ -41,13 +43,21 @@ public class NPCYapayZeka : MonoBehaviour
     // GameManager'ýn dýþarýdan çaðýrýp NPC'leri tetikleyeceði fonksiyon
     public void HareketeGec()
     {
-        // Hedef boþsa oyunu çökertme, sadece Console'a ismini yaz ve bu NPC'yi atla!
+        // Hedef yoksa oyunu çökertme, sadece Console'a ismini yaz ve bu NPC'yi atla!
         if (stadyumHedefi == null)
         {
-            Debug.LogError("DÝKKAT: " + gameObject.name + " isimli NPC'nin hedefi YOK! Inspector'dan hedefi atamayý unutmuþsun.");
+            Debug.LogError("DÝKKAT: " + gameObject.name + " isimli NPC'nin hedefi YOK! Inspector'dan atamayý unutmuþsun.");
             return;
         }
 
+        // 2. ZIRH: Ajan bir þekilde silinmiþse oyunu çökertmez, seni uyarýr!
+        if (ajan == null)
+        {
+            Debug.LogError("DÝKKAT: " + gameObject.name + " koþamýyor çünkü üstünde NavMeshAgent bileþeni yok!");
+            return;
+        }
+
+        // Bütün kontrollerden geçtiyse freni indir ve stadyuma koþ!
         hareketSerbest = true;
         ajan.SetDestination(stadyumHedefi.position);
 
