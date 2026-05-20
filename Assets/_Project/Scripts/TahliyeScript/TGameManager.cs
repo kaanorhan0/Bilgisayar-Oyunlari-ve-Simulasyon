@@ -11,8 +11,17 @@ public class TGameManager : MonoBehaviour
     public TextMeshProUGUI oyunIciPuanText;
     public TextMeshProUGUI bitisPuanText;
 
-    [Header("Panel Ayarları (YENİ)")]
+    [Header("Rozet Sistemi UI (YENİ)")]
+    public TextMeshProUGUI rozetMesajText; // "Tebrikler ... rozet kazandınız" yazacak text
+
+    [Header("Panel Ayarları")]
     public GameObject bolumSonuPaneli;
+
+    [Header("Rozet Görselleri (YENİ)")]
+    public GameObject elmasRozet;
+    public GameObject altinRozet;
+    public GameObject gumusRozet;
+    public GameObject bronzRozet;
 
     void Start()
     {
@@ -27,6 +36,10 @@ public class TGameManager : MonoBehaviour
         {
             bolumSonuPaneli.SetActive(false);
         }
+
+        // Oyun başında tüm rozetleri ve mesajı gizle
+        RozetleriKapat();
+        if (rozetMesajText != null) rozetMesajText.text = "";
     }
 
     private void OnEnable()
@@ -68,9 +81,46 @@ public class TGameManager : MonoBehaviour
             oyunIciPuanText.text = "Puan: " + finalToplamPuan;
         }
 
+        // Final puanına göre rozeti ve mesajı belirle
+        RozetDegerlendir(finalToplamPuan);
+
         if (bolumSonuPaneli != null)
         {
             bolumSonuPaneli.SetActive(true);
+        }
+    }
+
+    private void RozetleriKapat()
+    {
+        if (elmasRozet != null) elmasRozet.SetActive(false);
+        if (altinRozet != null) altinRozet.SetActive(false);
+        if (gumusRozet != null) gumusRozet.SetActive(false);
+        if (bronzRozet != null) bronzRozet.SetActive(false);
+    }
+
+    private void RozetDegerlendir(int toplamPuan)
+    {
+        RozetleriKapat(); // Önce hepsini kapattığımızdan emin olalım
+
+        if (toplamPuan >= 100)
+        {
+            if (elmasRozet != null) elmasRozet.SetActive(true);
+            if (rozetMesajText != null) rozetMesajText.text = "Tebrikler elmas rozet kazandınız!";
+        }
+        else if (toplamPuan >= 85) // 85 - 99 arası
+        {
+            if (altinRozet != null) altinRozet.SetActive(true);
+            if (rozetMesajText != null) rozetMesajText.text = "Tebrikler altın rozet kazandınız!";
+        }
+        else if (toplamPuan >= 60) // 60 - 84 arası
+        {
+            if (gumusRozet != null) gumusRozet.SetActive(true);
+            if (rozetMesajText != null) rozetMesajText.text = "Tebrikler gümüş rozet kazandınız!";
+        }
+        else // 0 - 59 arası
+        {
+            if (bronzRozet != null) bronzRozet.SetActive(true);
+            if (rozetMesajText != null) rozetMesajText.text = "Tebrikler bronz rozet kazandınız!";
         }
     }
 }
