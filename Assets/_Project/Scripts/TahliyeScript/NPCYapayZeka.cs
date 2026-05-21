@@ -94,7 +94,7 @@ public class NPCYapayZeka : MonoBehaviour
 
         {
 
-            Debug.LogError("DÝKKAT: " + gameObject.name + " isimli NPC'nin hedefi YOK! Inspector'dan atamayý unutmuþsun.");
+             Debug.LogError("DÝKKAT: " + gameObject.name + " isimli NPC'nin hedefi YOK! Inspector'dan atamayý unutmuþsun.");
 
             return;
 
@@ -108,7 +108,7 @@ public class NPCYapayZeka : MonoBehaviour
 
         {
 
-            Debug.LogError("DÝKKAT: " + gameObject.name + " koþamýyor çünkü üstünde NavMeshAgent bileþeni yok!");
+            // Debug.LogError("DÝKKAT: " + gameObject.name + " koþamýyor çünkü üstünde NavMeshAgent bileþeni yok!");
 
             return;
 

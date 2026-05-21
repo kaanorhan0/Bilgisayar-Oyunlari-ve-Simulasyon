@@ -31970,10 +31970,10 @@ MonoBehaviour:
   bitisPuanText: {fileID: 1257331127}
   rozetMesajText: {fileID: 1436292653}
   bolumSonuPaneli: {fileID: 1906740103}
-  elmasRozet: {fileID: 1061665542}
+  elmasRozet: {fileID: 74623947}
   altinRozet: {fileID: 891321891}
-  gumusRozet: {fileID: 891321891}
-  bronzRozet: {fileID: 1061665542}
+  gumusRozet: {fileID: 1061665542}
+  bronzRozet: {fileID: 786333542}
 --- !u!4 &1718452632
 Transform:
   m_ObjectHideFlags: 0
