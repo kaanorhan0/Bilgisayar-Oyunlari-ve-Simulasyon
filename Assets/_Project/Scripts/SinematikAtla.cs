@@ -1,58 +1,82 @@
 using UnityEngine;
-using UnityEngine.Playables; 
+using UnityEngine.Playables;
+using System.Collections;
 
 public class SinematikAtla : MonoBehaviour
 {
     [Header("Bağlantılar")]
-    public PlayableDirector director; 
-    public GameObject skipArayuzu; 
+    public PlayableDirector director;
+    public GameObject skipArayuzu;
     public GameObject bg1;
     public GameObject bg2;
 
+    [Header("Karakter Kilidi")]
+    public MonoBehaviour karakterHareketKodu;
+
+    [Header("Zaman Ayarı")]
+    [Tooltip("Sinematiğin kaçıncı saniyede otomatik biteceğini yaz (Örn: 28.5)")]
+    public float sinematikSuresi = 28.5f;
+
+    private bool islemYapildi = false;
+
     void Start()
     {
-        // Sinematik kendi kendine bittiğinde veya durdurulduğunda çalışacak fonksiyonu bağlıyoruz
-        if (director != null)
-        {
-            director.stopped += SinematikBittiKontrol;
-        }
-    }
+        // 1. Oyun başlar başlamaz karakteri kilitle
+        if (karakterHareketKodu != null)
+            karakterHareketKodu.enabled = false;
 
-    void OnDestroy()
-    {
-        // Hafıza sızıntısı olmaması için sahne kapanırken bağlantıyı koparıyoruz
+        // 2. Otomatik geri sayımı başlat
         if (director != null)
-        {
-            director.stopped -= SinematikBittiKontrol;
-        }
+            StartCoroutine(SinematikGeriSayim());
     }
 
     void Update()
     {
-        // Oyuncu Enter'a basarsa
-        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) && director.time < director.duration)
+        // 1. MANUEL ATLA (ENTER)
+        if (!islemYapildi && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
-            director.time = director.duration;
-            director.Evaluate();
-            director.Stop(); // <-- Sinematiği durdurduğumuz an Start'taki 'SinematikBittiKontrol' tetiklenir!
+            StopAllCoroutines(); // Arka plandaki otomatik sayacı durdur
+            BitirVeKamerayaGec();
         }
     }
 
-    // --- YENİ: Sinematik her halükarda bittiğinde burası çalışır ---
-    void SinematikBittiKontrol(PlayableDirector obj)
+    IEnumerator SinematikGeriSayim()
     {
-        // EvGameManager'a haber ver, müzik ve süre başlasın!
-        if (EvGameManager.Instance != null)
+        // Belirlediğin süre kadar kronometre sayar (Örn: 28.5 saniye)
+        yield return new WaitForSeconds(sinematikSuresi);
+
+        if (!islemYapildi)
         {
-            EvGameManager.Instance.OyunuVeMuzigiBaslat();
+            BitirVeKamerayaGec();
+        }
+    }
+
+    // HEM ENTER HEM OTOMATİK BİTİŞTE ÇALIŞACAK KESİN ÇÖZÜM
+    void BitirVeKamerayaGec()
+    {
+        if (islemYapildi) return;
+        islemYapildi = true;
+
+        if (director != null)
+        {
+            // İŞTE PROJEYİ KURTARAN ORİJİNAL MANTIK:
+            // Timeline'ı 80. saniyeye sarıp zorla okutuyoruz ki Main Camera satırın tetiklensin!
+            director.time = director.duration;
+            director.Evaluate();
+            director.Stop();
         }
 
-        // Skip yazısını kapat
-        if (skipArayuzu != null)
-        {
-            skipArayuzu.SetActive(false);
-            bg1.SetActive(false);
-            bg2.SetActive(false);
-        }
+        // Karakterin hareket kilidini aç
+        if (karakterHareketKodu != null)
+            karakterHareketKodu.enabled = true;
+
+        // Oyun yöneticisini ve müziği başlat
+        if (EvGameManager.Instance != null)
+            EvGameManager.Instance.OyunuVeMuzigiBaslat();
+
+        // UI Elemanlarını kapat
+        if (skipArayuzu != null) skipArayuzu.SetActive(false);
+        if (bg1 != null) bg1.SetActive(false);
+        if (bg2 != null) bg2.SetActive(false);
     }
 }

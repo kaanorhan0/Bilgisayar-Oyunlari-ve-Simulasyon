@@ -1936,6 +1936,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &678802254 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6535127476405514044, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
+  m_PrefabInstance: {fileID: 1706001915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678802244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130fe29a5e8165744825a9312cfe3e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1 &684227048
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,6 +4298,14 @@ PrefabInstance:
       propertyPath: skipArayuzu
       value: 
       objectReference: {fileID: 1684102098}
+    - target: {fileID: 394902556861722407, guid: 7486629b2cb4e9b4293d81ed1c60762c, type: 3}
+      propertyPath: sinematikSuresi
+      value: 29.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 394902556861722407, guid: 7486629b2cb4e9b4293d81ed1c60762c, type: 3}
+      propertyPath: karakterHareketKodu
+      value: 
+      objectReference: {fileID: 678802254}
     - target: {fileID: 1796787256888573717, guid: 7486629b2cb4e9b4293d81ed1c60762c, type: 3}
       propertyPath: m_text
       value: "Ge\xE7mek i\xE7in Enter tusuna bas\u0131n\u0131z"
