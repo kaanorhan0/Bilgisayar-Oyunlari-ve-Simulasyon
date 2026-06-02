@@ -3664,8 +3664,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd5bf2e7dacb244593e9c34e5ce675a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BilgiPosteri
-  posterMetni: "112'yi sadece EN ACIL DURUMDA ara!\r\nSimdi can g\xFCvenligi (\xC7\xD6K-KAPAN-TUTUN).\r\nHayat\u0131n
-    s\xF6z konusu olmad\u0131k\xE7a 112'yi mesgul etme."
+  posterMetni: '112''yi sadece ACIL DURUMDA ara!
+
+
+'
 --- !u!65 &1475382438
 BoxCollider:
   m_ObjectHideFlags: 0
