@@ -45,7 +45,7 @@ public class TGameManager : MonoBehaviour
     private void OnEnable()
     {
         // Sahnedeki tüm NPC'leri buluyoruz
-        NPCYapayZeka[] tumNPCler = FindObjectsOfType<NPCYapayZeka>();
+        NPCYapayZeka[] tumNPCler = FindObjectsByType<NPCYapayZeka>(FindObjectsSortMode.None);
 
         // Hepsine tek tek "Harekete geç" emrini gönderiyoruz
         foreach (NPCYapayZeka npc in tumNPCler)
