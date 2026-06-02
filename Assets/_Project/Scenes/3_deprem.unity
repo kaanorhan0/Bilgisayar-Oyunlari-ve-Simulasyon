@@ -3664,8 +3664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd5bf2e7dacb244593e9c34e5ce675a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BilgiPosteri
-  posterMetni: "112'yi sadece EN ACIL DURUMDA ara!\r\nSimdi can g\xFCvenligi (\xC7\xD6K-KAPAN-TUTUN).\r\nHayat\u0131n
-    s\xF6z konusu olmad\u0131k\xE7a 112'yi mesgul etme."
+  posterMetni: 112'yi sadece ACIL DURUMDA ara!
 --- !u!65 &1475382438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4924,6 +4923,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6598160740812539453, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1814384630}
+    - targetCorrespondingSourceObject: {fileID: 6598160740812539453, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1814384631}
     - targetCorrespondingSourceObject: {fileID: 6884951027264276975, guid: 331885713af1c914c8ea73f6c36d44fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1573768195}
@@ -4958,6 +4960,105 @@ MonoBehaviour:
   kucukUyariArkaplani: {fileID: 1617829261}
   ozelPanel: {fileID: 32037870}
   panelMetni: {fileID: 78003866}
+  sesKaynagi: {fileID: 1814384631}
+  bilgilendirmeSesi: {fileID: 8300000, guid: 57843836a64d046419478112ec12b2b1, type: 3}
+--- !u!82 &1814384631
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814384627}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1841941258
 PrefabInstance:
   m_ObjectHideFlags: 0
