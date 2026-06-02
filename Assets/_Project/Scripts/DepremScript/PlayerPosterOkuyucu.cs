@@ -3,7 +3,7 @@ using TMPro;
 
 public class PlayerPosterOkuyucu : MonoBehaviour
 {
-    public float okumaMesafesi = 2f; // İstediğin gibi etkileşim alanını 2f yaptık
+    public float okumaMesafesi = 2f; 
 
     [Header("SADECE Posterin Katmanını Seç")]
     public LayerMask posterKatmani;
@@ -15,7 +15,10 @@ public class PlayerPosterOkuyucu : MonoBehaviour
     [Header("Senin Özel Büyük 112 Panelin")]
     public GameObject ozelPanel;
     public TextMeshProUGUI panelMetni;
-    
+
+    [Header("--- BİLGİLENDİRME SESİ ---")]
+    public AudioSource sesKaynagi;
+    public AudioClip bilgilendirmeSesi;
 
     private bool panelAcikMi = false;
 
@@ -40,6 +43,14 @@ public class PlayerPosterOkuyucu : MonoBehaviour
                         if (panelMetni != null) panelMetni.text = poster.posterMetni;
                         ozelPanel.SetActive(true);
                         panelAcikMi = true;
+
+                        // ---- DEĞİŞEN KISIM: SES BURADA ÇALIYOR ----
+                        if (sesKaynagi != null && bilgilendirmeSesi != null)
+                        {
+                            sesKaynagi.clip = bilgilendirmeSesi;
+                            sesKaynagi.Play();
+                        }
+                        // -------------------------------------------
                     }
                 }
                 // DURUM 2: PANEL ZATEN AÇIKSA VE HALA ALANDAYSAK
@@ -51,6 +62,9 @@ public class PlayerPosterOkuyucu : MonoBehaviour
                     {
                         ozelPanel.SetActive(false);
                         panelAcikMi = false;
+                        
+                        // ---- SESİ DURDUR ----
+                        SesiDurdur();
                     }
                 }
                 return; // Karakter postere 2 metre yakınlıkta baktığı sürece aşağıdaki kapatma kodlarını es geç
@@ -58,13 +72,15 @@ public class PlayerPosterOkuyucu : MonoBehaviour
         }
 
         // DURUM 3: ALANDAN ÇIKINCA VEYA KAFASINI ÇEVİRİNCE (OTOMATİK KAPATMA)
-        // Işın posteri ıskaladığı an (2 metreden uzaklaşınca veya arkasını dönünce) burası çalışır
         UyariKapat();
 
         if (panelAcikMi)
         {
             if (ozelPanel != null) ozelPanel.SetActive(false); // Büyük paneli otomatik söndür
             panelAcikMi = false;
+            
+            // ---- SESİ DURDUR ----
+            SesiDurdur();
         }
     }
 
@@ -83,5 +99,15 @@ public class PlayerPosterOkuyucu : MonoBehaviour
     {
         if (kucukUyariYazisi != null) kucukUyariYazisi.gameObject.SetActive(false);
         if (kucukUyariArkaplani != null) kucukUyariArkaplani.SetActive(false);
+    }
+
+    // --- SES DURDURMA FONKSİYONU ---
+    void SesiDurdur()
+    {
+        // Eğer ses kaynağı boş değilse ve o an bir ses çalıyorsa, sesi bıçak gibi kes.
+        if (sesKaynagi != null && sesKaynagi.isPlaying)
+        {
+            sesKaynagi.Stop();
+        }
     }
 }
