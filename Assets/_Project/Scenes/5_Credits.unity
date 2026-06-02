@@ -396,7 +396,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2663261007282744004, guid: 4b115b5111ea7a64499c293e26b6899f, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 49dd2325b1a456a4a9d4e67aebcd9591, type: 3}
+  m_Resource: {fileID: 8300000, guid: de3af8a7d9b1b87409d5c5edb82db3a8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.651
   m_Pitch: 1
@@ -566,13 +566,9 @@ MonoBehaviour:
     Y\xD6netim ve Optimizasyon (Technical Lead)\n\nTemel Oyun Mekanikleri ve Sistem
     Altyap\u0131s\u0131 (Core Mechanics)\n\n\u2014 KULLANILAN TEKNOLOjiLER VE ARA\xC7LAR
     \u2014\n\nOyun Motoru: Unity 6\n\nProgramlama: C# Scripting\n\nS\xFCr\xFCm Kontrol\xFC:
-    Git & GitHub\n\nAray\xFCz Altyap\u0131s\u0131: TextMeshPro\n\n\u2014 \xD6ZEL
-    TEsEKK\xDCRLER (SPECIAL THANKS) \u2014\n\nBursa Uludag \xDCniversitesi'ne,\n\n\u0131neg\xD6l
-    Belediyesi \xC7ocuk Odakl\u0131 AFet Temal\u0131 Dijital Oyun Yar\u0131smas\u0131
-    Organizasyonuna,\n\nGelistirme s\xFCrecinde testlerimize kat\u0131l\u0131p bize
-    geri bildirim veren t\xFCm dostlar\u0131m\u0131za...\n\n\u2014 YAPIM YILI \u2014\n2026\n\n\"Deprem
-    degil, tedbirsizlik \xD6Ld\xFCr\xFCr.\"\nOynad\u0131g\u0131n\u0131z i\xE7in Tesekk\xFCr
-    Ederiz..."
+    Git & GitHub\n\nAray\xFCz Altyap\u0131s\u0131: TextMeshPro\n\n\n\u2014 YAPIM
+    YILI \u2014\n2026\n\n\"Deprem degil, tedbirsizlik \xD6Ld\xFCr\xFCr.\"\nOynad\u0131g\u0131n\u0131z
+    i\xE7in Tesekk\xFCr Ederiz..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
